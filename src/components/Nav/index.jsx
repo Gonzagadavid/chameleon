@@ -5,15 +5,19 @@ import ContactCard from '../ContactCard';
 import './style.css';
 
 const Nav = () => (
-  <nav className="Nav">
+  <div className="Nav">
     <LogoArtist />
     <ContactCard />
-    <Link to="/artist-details">Details</Link>
-    <Link to="/artist-details/biography">Biograph</Link>
-    <Link to="/discograph">Discograph</Link>
-    <Link to="/video-music">Video Music</Link>
-    <Link to="/lyrics">Lyrics</Link>
-  </nav>
+    <nav>
+      <ul>
+        <li><Link to="/artist-details">Details</Link></li>
+        <li><Link to="/artist-details/biography">Biograph</Link></li>
+        <li><Link to="/discograph">Discograph</Link></li>
+        <li><Link to="/video-music">Video Music</Link></li>
+        <li><Link to="/lyrics">Lyrics</Link></li>
+      </ul>
+    </nav>
+  </div>
 );
 
 export default Nav;

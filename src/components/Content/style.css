@@ -1,6 +1,17 @@
 .Content {
   display: flex;
-  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 23%;
   height: 100%;
-  background-color: blueviolet;
+}
+
+.Content header {
+  width: 100%;
+}
+
+.Content header img {
+  width: 100%;
 }

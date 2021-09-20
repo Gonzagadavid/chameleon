@@ -1,9 +1,41 @@
 .Nav {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  width: 20%;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 350px;
+  box-shadow:  10px 5px 20px rgb(0, 0, 0);
+  background:  linear-gradient(0deg, rgb(23, 18, 49), rgb(0, 0, 0));
+  position: fixed;
+  left: 0px;
+  top: 0px;
   height: 100%;
-  background-color: black;
-  padding: 20px;
+  width: 23%;
+}
+
+.Nav nav {
+  flex: 1;
+  margin-top: 10px;
+}
+
+.Nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.Nav li {
+  display: flex;
+  width: 94%;
+}
+
+.Nav li a {
+  flex: 1;
+  padding: 8px 20px 8px 45px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition-property: color;
+  transition-property: background-color;
+  transition-duration: 0.2s;
 }

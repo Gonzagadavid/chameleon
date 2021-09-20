@@ -1,13 +1,18 @@
 import React from 'react';
-import Main from '../Main';
-import Nav from '../Nav';
+import { useSelector } from 'react-redux';
+import ArtistRouters from '../../routers/ArtistRouters';
 import './style.css';
 
-const Content = () => (
-  <div className="Content">
-    <Nav />
-    <Main />
-  </div>
-);
+const Content = () => {
+  const { strArtistBanner } = useSelector((state) => state.artistDetails);
+  return (
+    <div className="Content">
+      <header>
+        {strArtistBanner && <img src={strArtistBanner} alt="artist banner" />}
+      </header>
+      <ArtistRouters />
+    </div>
+  );
+};
 
 export default Content;
