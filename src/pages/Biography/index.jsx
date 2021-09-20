@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import BiographyContainer from '../../components/BiographyContainer';
 import SelectLanguage from '../../components/SelectLanguage';
+import './style.css';
 
 const Biography = () => {
   const [language, setLanguage] = useState('EN');
   const artistDetails = useSelector((state) => state.artistDetails);
 
   return (
-    <div>
+    <div className="Biography">
       <h2>Biography</h2>
       <SelectLanguage setLanguage={setLanguage} objectItems={artistDetails} />
       <BiographyContainer language={language} />

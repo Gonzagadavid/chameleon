@@ -1,7 +1,15 @@
 .Main {
+  display: flex;
+  flex-direction: column;
   width: 80%;
+  height: 100%;
 }
 
+
 .Main header img {
-  width: 100%;
+  min-width: 100%;
+}
+
+.Main header {
+  height: 80%;
 }

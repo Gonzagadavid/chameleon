@@ -2,10 +2,10 @@ import {
   func, objectOf, string,
 } from 'prop-types';
 import React from 'react';
-import ArrayOptions from '../../functions/ArrayOptions';
+import arrayKeys from '../../functions/arrayKeys';
 
 const SelectLanguage = ({ setLanguage, objectItems }) => {
-  const options = ArrayOptions(objectItems);
+  const options = arrayKeys(objectItems, 'strBiography');
   return (
     <div>
       <select onChange={({ target: { value } }) => setLanguage(value)}>
