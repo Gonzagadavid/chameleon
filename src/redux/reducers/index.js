@@ -1,15 +1,21 @@
-import { ARTIST_DETAILS, ERROR } from '../actions';
+import { ARTIST_DETAILS, DISCOGRAPHY, ERROR } from '../actions';
 
 const INITIAL_STATE = {
   error: null,
-  artistDetails: [],
+  artistDetails: {},
+  albums: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ERROR: return { ...state, error: action.state };
+    case ERROR:
+      return { ...state, error: action.state };
 
-    case ARTIST_DETAILS: return { ...state, artistDetails: action.state };
+    case ARTIST_DETAILS:
+      return { ...state, artistDetails: action.state, error: null };
+
+    case DISCOGRAPHY:
+      return { ...state, albums: action.state, error: null };
 
     default: return state;
   }
