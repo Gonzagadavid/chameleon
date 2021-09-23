@@ -7,7 +7,7 @@ const AlbumsContainer = () => {
   const albums = useSelector((state) => state.albums);
 
   return (
-    <div>
+    <div className="AlbumsContainer">
       {albums.map((album) => <AlbumCard key={album.idAlbum} album={album} />)}
     </div>
   );

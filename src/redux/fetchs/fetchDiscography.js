@@ -6,7 +6,8 @@ const fetchDiscography = (id) => async (dispatch) => {
 
   if (error) return dispatch(actionError);
 
-  return dispatch(actionDiscography(album));
+  const albuns = [...album].sort((a, b) => +a.intYearReleased - +b.intYearReleased);
+  return dispatch(actionDiscography(albuns));
 };
 
 export default fetchDiscography;

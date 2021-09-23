@@ -1,0 +1,22 @@
+.AlbumCard {
+  display: flex;
+  width: 80%;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+.AlbumCard a {
+  display: flex;
+  width: 100%;
+}
+
+.imgAlbum {
+  width: 50%;
+}
+
+.AlbumCard img {
+  width: 50%;
+}
+
+.infoAlbum {
+  width: 50%;
+} 
