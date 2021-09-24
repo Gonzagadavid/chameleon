@@ -8,17 +8,17 @@ const ContactCard = () => {
   return (
     <div>
       {strWebsite && (
-      <a href={strWebsite}>
+      <a href={`https://${strWebsite}`} target="_blank" rel="noreferrer">
         <CgWebsite />
       </a>
       )}
       {strFacebook && (
-      <a href={strFacebook}>
+      <a href={`https://${strFacebook}`} target="_blank" rel="noreferrer">
         <AiFillFacebook />
       </a>
       )}
       {strTwitter && (
-      <a href={strTwitter}>
+      <a href={`https://${strTwitter}`} target="_blank" rel="noreferrer">
         <AiOutlineTwitter />
       </a>
       )}
