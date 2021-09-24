@@ -5,9 +5,8 @@ import './styles.css';
 
 const ImagesContainer = () => {
   const artistDetails = useSelector((state) => state.artistDetails);
-  const { strArtistFanart, strArtistWideThumb } = artistDetails;
-  const initialImage = strArtistWideThumb || strArtistFanart;
-  const [image, setImage] = useState(initialImage);
+  const { strArtistFanart } = artistDetails;
+  const [image, setImage] = useState(strArtistFanart);
   const arrayImgs = arrayImages(artistDetails);
 
   useEffect(() => {
