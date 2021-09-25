@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   artistDetails: {},
   albums: [],
   album: null,
+  trackList: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
