@@ -4,8 +4,8 @@ import {
 import React from 'react';
 import arrayKeys from '../../functions/arrayKeys';
 
-const SelectLanguage = ({ setLanguage, objectItems }) => {
-  const options = arrayKeys(objectItems, 'strBiography');
+const SelectLanguage = ({ setLanguage, objectItems, keyOption }) => {
+  const options = arrayKeys(objectItems, keyOption);
   return (
     <div>
       <select onChange={({ target: { value } }) => setLanguage(value)}>
@@ -20,4 +20,5 @@ export default SelectLanguage;
 SelectLanguage.propTypes = {
   setLanguage: func.isRequired,
   objectItems: objectOf(string).isRequired,
+  keyOption: string.isRequired,
 };

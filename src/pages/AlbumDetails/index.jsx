@@ -4,7 +4,7 @@ import AlbumDetailsContainer from '../../components/AlbumDetailsContainer';
 import './style.css';
 
 const AlbumDetails = ({ match: { params: { id } } }) => (
-  <div>
+  <div className="AlbumDetails">
     <h2>Album Details</h2>
     <AlbumDetailsContainer id={id} />
   </div>

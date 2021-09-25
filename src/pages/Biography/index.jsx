@@ -13,7 +13,7 @@ const Biography = () => {
     <div className="Biography">
       <h2>Biography</h2>
       <ImagesContainer />
-      <SelectLanguage setLanguage={setLanguage} objectItems={artistDetails} />
+      <SelectLanguage setLanguage={setLanguage} objectItems={artistDetails} keyOption="strBiography" />
       <BiographyContainer language={language} />
     </div>
   );

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import notFoundImage from '../../images/notFoundImage.png';
 import './style.css';
 
-const InfoCard = () => {
+const InfoImage = () => {
   const artistDetails = useSelector((state) => state.artistDetails);
   const { strArtistFanart, strArtistWideThumb } = artistDetails;
   const image = strArtistWideThumb || strArtistFanart;
@@ -13,4 +13,4 @@ const InfoCard = () => {
     </div>
   );
 };
-export default InfoCard;
+export default InfoImage;
