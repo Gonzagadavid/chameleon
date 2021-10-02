@@ -1,5 +1,5 @@
 import {
-  ALBUM, ARTIST_DETAILS, DISCOGRAPHY, ERROR,
+  ALBUM, ARTIST_DETAILS, DISCOGRAPHY, ERROR, TRACKSBYALBUM,
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -23,6 +23,9 @@ const reducer = (state = INITIAL_STATE, action) => {
 
     case ALBUM:
       return { ...state, album: action.state, error: null };
+
+    case TRACKSBYALBUM:
+      return { ...state, trackList: action.state };
 
     default: return state;
   }

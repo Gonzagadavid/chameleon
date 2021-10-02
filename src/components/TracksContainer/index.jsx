@@ -1,12 +1,21 @@
 import { string } from 'prop-types';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import fetchTrackByAlbum from '../../redux/fetchs/fetchTracksByAlbum';
 import './style.css';
 
 const TracksContainer = ({ id }) => {
   const trackList = useSelector((state) => state.trackList);
+  const dispatch = useDispatch();
+  const getTracks = useCallback(async () => dispatch(fetchTrackByAlbum(id)), []);
+  useEffect(() => getTracks(), []);
+
   return (
-    <h1>TracksContainer</h1>
+    <ul>
+      {trackList.map(({ strTrack }) => (
+        <li>{strTrack}</li>
+      ))}
+    </ul>
   );
 };
 
