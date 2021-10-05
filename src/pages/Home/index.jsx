@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { actionArtistCurrent } from '../../redux/actions';
 import fetchArtistDetails from '../../redux/fetchs/fetchArtistDetails';
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
   const history = useHistory();
 
   const handleClick = async () => {
+    dispatch(actionArtistCurrent(artist));
     await dispatch(fetchArtistDetails(artist));
     history.push('/artist-details');
   };

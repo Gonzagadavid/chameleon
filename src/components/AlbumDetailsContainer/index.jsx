@@ -16,7 +16,7 @@ const AlbumDetailsContainer = ({ id }) => {
 
   const description = album[`strDescription${language}`];
   const {
-    strAlbum, strAlbumThumb, strAlbumThumbBack, intYearReleased,
+    strAlbum, strAlbumThumb, intYearReleased,
   } = album;
 
   return (
@@ -28,7 +28,6 @@ const AlbumDetailsContainer = ({ id }) => {
       <img src={strAlbumThumb} alt="album front" />
       <SelectLanguage setLanguage={setLanguage} objectItems={album} keyOption="strDescription" />
       <p>{description}</p>
-      {strAlbumThumbBack && <img src={strAlbumThumbBack} alt="album back" />}
     </div>
   );
 };

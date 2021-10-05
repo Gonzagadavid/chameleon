@@ -8,6 +8,12 @@ export const ALBUM = 'ALBUM';
 
 export const TRACKSBYALBUM = 'TRACKSBYALBUM';
 
+export const ARTIST_CURRENT = 'ARTIST_CURRENT';
+
+export const MUSIC_VIDEOS = 'MUSIC_VIDEOS';
+
+export const LYRIC = 'LYRIC';
+
 export const actionError = { type: ERROR, state: 'Ocorreu um erro na aplicação, tente novamente mais tarde!' };
 
 export const actionArtistDetails = (state) => ({ type: ARTIST_DETAILS, state });
@@ -17,3 +23,9 @@ export const actionDiscography = (state) => ({ type: DISCOGRAPHY, state });
 export const actionAlbum = (state) => ({ type: ALBUM, state });
 
 export const actionTrackByAlbum = (state) => ({ type: TRACKSBYALBUM, state });
+
+export const actionArtistCurrent = (state) => ({ type: ARTIST_CURRENT, state });
+
+export const actionMusicVideos = (state) => ({ type: MUSIC_VIDEOS, state });
+
+export const actionLyric = (state) => ({ type: LYRIC, state });

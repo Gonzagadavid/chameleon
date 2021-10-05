@@ -1,9 +1,9 @@
 .Content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   margin-left: 23%;
   height: 100%;
 }

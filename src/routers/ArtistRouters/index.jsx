@@ -5,6 +5,7 @@ import AlbumDetails from '../../pages/AlbumDetails';
 import ArtistDetails from '../../pages/ArtistDetails';
 import Biography from '../../pages/Biography';
 import Discography from '../../pages/Discography';
+import Track from '../../pages/Track';
 import './style.css';
 
 const ArtistRouters = () => (
@@ -15,6 +16,7 @@ const ArtistRouters = () => (
       <Route path="/artist-details/biography" component={Biography} />
       <Route exact path="/artist-details/discography" component={Discography} />
       <Route path="/artist-details/discography/:id" component={AlbumDetails} />
+      <Route path="/artist-details/track/:trackName" component={Track} />
     </Switch>
   </div>
 );
