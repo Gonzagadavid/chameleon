@@ -15,8 +15,8 @@ const TracksContainer = ({ id }) => {
     <div className="TracksContainer">
       <h3>Tracks</h3>
       <ul>
-        {trackList.map(({ strTrack, idTrack }) => (
-          <Link to={`/artist-details/track/${strTrack}/${idTrack}`}><li>{strTrack}</li></Link>
+        {trackList.map(({ strTrack }) => (
+          <Link to={`/artist-details/track/${strTrack}`}><li>{strTrack}</li></Link>
         ))}
       </ul>
     </div>

@@ -9,7 +9,6 @@ const fetchLyric = (artist, title) => async (dispatch) => {
 
   const lyric = lyrics.replace(`Paroles de la chanson ${initialUpperCase(title)} par ${initialUpperCase(artist)}`, '');
 
-  // console.log(lyric);
   return dispatch(actionLyric(lyric));
 };
 

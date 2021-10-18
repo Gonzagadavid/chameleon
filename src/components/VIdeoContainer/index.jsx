@@ -8,7 +8,7 @@ const VideoContainer = ({ trackName }) => {
   const music = musicVideos.filter(({ strTrack }) => trackName === strTrack)[0];
   if (!music) return '';
   const embedVideo = music.strMusicVid.replace(/watch\?v=/g, 'embed/');
-  console.log(embedVideo);
+
   return (
     <div>
       <iframe src={embedVideo} title={`video of music ${trackName}`} />

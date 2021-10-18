@@ -13,7 +13,7 @@ const Nav = () => (
         <li><Link to="/artist-details">Details</Link></li>
         <li><Link to="/artist-details/biography">Biograph</Link></li>
         <li><Link to="/artist-details/discography">Discograph</Link></li>
-        <li><Link to="/video-music">Video Music</Link></li>
+        <li><Link to="/artist-details/video-music">Video Music</Link></li>
         <li><Link to="/lyrics">Lyrics</Link></li>
       </ul>
     </nav>
