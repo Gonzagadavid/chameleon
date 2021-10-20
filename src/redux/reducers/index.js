@@ -1,5 +1,6 @@
 import {
-  ALBUM, ARTIST_CURRENT, ARTIST_DETAILS, DISCOGRAPHY, ERROR, LYRIC, MUSIC_VIDEOS, TRACKSBYALBUM,
+  ALBUM, ARTIST_CURRENT, ARTIST_DETAILS, DISCOGRAPHY, ERROR, LYRIC,
+  MUSIC_VIDEOS, TRACKSBYALBUM, MESSAGE,
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
   artistCurrent: null,
   musicVideos: [],
   lyric: '',
+  message: '',
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -38,6 +40,9 @@ const reducer = (state = INITIAL_STATE, action) => {
 
     case LYRIC:
       return { ...state, lyric: action.state };
+
+    case MESSAGE:
+      return { ...state, message: action.state };
 
     default: return state;
   }
