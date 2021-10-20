@@ -22,6 +22,11 @@ const Home = () => {
     return getArtist();
   };
 
+  const handleChange = (event) => {
+    const { target: { value } } = event;
+    setArtist(value);
+  };
+
   return (
     <div className="Home">
       <div className="image" />
@@ -31,7 +36,12 @@ const Home = () => {
           Music Universe
           <span>N</span>
         </h1>
-        <input placeholder="Search..." value={artist} onChange={({ target: { value } }) => setArtist(value)} />
+        <input
+          placeholder="Search..."
+          value={artist}
+          onInput={handleChange}
+          onKeyPress={({ code }) => code === 'Enter' && handleClick()}
+        />
         <button type="button" onClick={handleClick}>
           <BsSearch />
         </button>

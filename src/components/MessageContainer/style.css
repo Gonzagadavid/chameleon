@@ -8,10 +8,11 @@
   height: 200px;
   top: 35%;
   left: 35%;
-  background-color: rgba(100, 0, 0, 0.8);
+  background-color: rgba(100, 0, 0, 0.9);
   color: #ffffff;
   font-size: 30px;
   border-radius: 20px;
+  z-index: 2;
 }
 
 .MessageContainer button { 
@@ -20,5 +21,5 @@
   font-size: 20px;
   cursor: pointer;
   border-radius: 5px;
-  
+
 }
