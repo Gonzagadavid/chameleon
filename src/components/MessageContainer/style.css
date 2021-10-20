@@ -1,0 +1,8 @@
+.MessageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 400px;
+  height: 200px;
+}
