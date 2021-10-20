@@ -49,6 +49,8 @@
 }
 
 .opacity {
+  position: fixed;
+  bottom: 0;
   height: 100%;
   width: 100%;
   background: rgba(0,0,0, 0.5);
@@ -58,4 +60,12 @@
   font-family: music;
   font-size: 160px;
   margin: 0 10px;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  background-image: url('../../images/notes.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
 }

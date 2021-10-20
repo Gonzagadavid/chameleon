@@ -24,6 +24,7 @@ const Home = () => {
 
   return (
     <div className="Home">
+      <div className="image" />
       <div className="opacity">
         <h1>
           <span>N</span>
