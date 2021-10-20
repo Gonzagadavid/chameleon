@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { actionArtistCurrent } from '../../redux/actions';
 import fetchArtistDetails from '../../redux/fetchs/fetchArtistDetails';
+import './style.css';
 
 const Home = () => {
   const [artist, setArtist] = useState('');
@@ -17,13 +18,19 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>Music Universe</h1>
-      <input placeholder="Search..." value={artist} onChange={({ target: { value } }) => setArtist(value)} />
-      <button type="button" onClick={handleClick}>
-        <BsSearch />
-      </button>
-      <p>Learn more about your favorite artist or band!</p>
+    <div className="Home">
+      <div className="opacity">
+        <h1>
+          <span>N</span>
+          Music Universe
+          <span>N</span>
+        </h1>
+        <input placeholder="Search..." value={artist} onChange={({ target: { value } }) => setArtist(value)} />
+        <button type="button" onClick={handleClick}>
+          <BsSearch />
+        </button>
+        <p>Learn more about your favorite artist or band!</p>
+      </div>
     </div>
   );
 };

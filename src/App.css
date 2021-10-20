@@ -6,3 +6,19 @@
   height: 100%;
   margin: 0;
 }
+
+
+@font-face {
+  font-family: kabut;
+  src: url('./fonts/kabut_hitam/Kabut\ Hitam.ttf');
+}
+
+@font-face {
+  font-family: lazy;
+  src: url('./fonts/lazy_dog.ttf');
+}
+
+@font-face {
+  font-family: music;
+  src: url('./fonts/music_elements/MUSICELE.TTF');
+}
