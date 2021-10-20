@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { actionArtistCurrent, actionMessage } from '../../redux/actions';
 import fetchArtistDetails from '../../redux/fetchs/fetchArtistDetails';
@@ -8,13 +8,14 @@ import './style.css';
 
 const Home = () => {
   const [artist, setArtist] = useState('');
+  const artistDetails = useSelector((state) => state.artistDetails);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const getArtist = async () => {
     dispatch(actionArtistCurrent(artist));
     await dispatch(fetchArtistDetails(artist));
-    history.push('/artist-details');
+    if (artistDetails.length) history.push('/artist-details');
   };
 
   const handleClick = () => {
