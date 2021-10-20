@@ -18,7 +18,7 @@ const INITIAL_STATE = {
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ERROR:
-      return { ...state, error: action.state };
+      return { ...state, error: action.state, message: action.state };
 
     case ARTIST_DETAILS:
       return { ...state, artistDetails: action.state };

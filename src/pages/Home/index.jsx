@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -15,7 +15,6 @@ const Home = () => {
   const getArtist = async () => {
     dispatch(actionArtistCurrent(artist));
     await dispatch(fetchArtistDetails(artist));
-    if (artistDetails.length) history.push('/artist-details');
   };
 
   const handleClick = () => {
@@ -27,6 +26,10 @@ const Home = () => {
     const { target: { value } } = event;
     setArtist(value);
   };
+
+  useEffect(() => {
+    if (Object.keys(artistDetails).length) history.push('/artist-details');
+  }, [artistDetails]);
 
   return (
     <div className="Home">
