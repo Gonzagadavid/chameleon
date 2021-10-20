@@ -1,8 +1,21 @@
 .MessageContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
   position: fixed;
   width: 400px;
   height: 200px;
+  top: 35%;
+  left: 35%;
+  background-color: rgba(100, 0, 0, 0.8);
+  color: #ffffff;
+  font-size: 30px;
+  border-radius: 20px;
+}
+
+.MessageContainer button { 
+  border: none;
+  padding: 5px;
+  font-size: 20px;
 }

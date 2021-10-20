@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { actionArtistCurrent } from '../../redux/actions';
+import { actionArtistCurrent, actionMessage } from '../../redux/actions';
 import fetchArtistDetails from '../../redux/fetchs/fetchArtistDetails';
 import './style.css';
 
@@ -11,10 +11,15 @@ const Home = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleClick = async () => {
+  const getArtist = async () => {
     dispatch(actionArtistCurrent(artist));
     await dispatch(fetchArtistDetails(artist));
     history.push('/artist-details');
+  };
+
+  const handleClick = () => {
+    if (!artist) return dispatch(actionMessage('Write the name of a band or artist in the music bar'));
+    return getArtist();
   };
 
   return (
