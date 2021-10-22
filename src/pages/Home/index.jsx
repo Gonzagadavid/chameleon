@@ -7,6 +7,7 @@ import fetchArtistDetails from '../../redux/fetchs/fetchArtistDetails';
 import './style.css';
 
 const Home = () => {
+  const [redirect, setRedirect] = useState(false);
   const [artist, setArtist] = useState('');
   const artistDetails = useSelector((state) => state.artistDetails);
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Home = () => {
 
   const handleClick = () => {
     if (!artist) return dispatch(actionMessage('Write the name of a band or artist in the music bar'));
+    setRedirect(true);
     return getArtist();
   };
 
@@ -28,7 +30,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (Object.keys(artistDetails).length) history.push('/artist-details');
+    if (Object.keys(artistDetails).length && redirect) history.push('/artist-details');
   }, [artistDetails]);
 
   return (

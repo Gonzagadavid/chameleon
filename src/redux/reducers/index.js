@@ -1,9 +1,9 @@
 import {
   ALBUM, ARTIST_CURRENT, ARTIST_DETAILS, DISCOGRAPHY, ERROR, LYRIC,
-  MUSIC_VIDEOS, TRACKSBYALBUM, MESSAGE,
+  MUSIC_VIDEOS, TRACKSBYALBUM, MESSAGE, RESET_STATE,
 } from '../actions';
 
-const INITIAL_STATE = {
+export const DEFAULT_STATE = {
   error: null,
   artistDetails: {},
   albums: [],
@@ -14,6 +14,10 @@ const INITIAL_STATE = {
   lyric: '',
   message: '',
 };
+
+const LOCAL_STORE_STATE = localStorage.getItem('artist_state') || false;
+
+const INITIAL_STATE = JSON.parse(LOCAL_STORE_STATE) || DEFAULT_STATE;
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -43,6 +47,9 @@ const reducer = (state = INITIAL_STATE, action) => {
 
     case MESSAGE:
       return { ...state, message: action.state };
+
+    case RESET_STATE:
+      return DEFAULT_STATE;
 
     default: return state;
   }

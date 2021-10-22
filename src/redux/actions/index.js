@@ -16,6 +16,8 @@ export const LYRIC = 'LYRIC';
 
 export const MESSAGE = 'MESSAGE';
 
+export const RESET_STATE = 'RESET_STATE';
+
 export const actionError = { type: ERROR, state: 'Ocorreu um erro na aplicação, tente novamente mais tarde!' };
 
 export const actionArtistDetails = (state) => ({ type: ARTIST_DETAILS, state });
@@ -33,3 +35,5 @@ export const actionMusicVideos = (state) => ({ type: MUSIC_VIDEOS, state });
 export const actionLyric = (state) => ({ type: LYRIC, state });
 
 export const actionMessage = (state) => ({ type: MESSAGE, state });
+
+export const actionResetState = { type: RESET_STATE };
