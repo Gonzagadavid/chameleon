@@ -12,14 +12,16 @@ import './style.css';
 const ArtistRouters = () => (
   <div className="ArtistRouters">
     <Nav />
-    <Switch>
-      <Route exact path="/artist-details" component={ArtistDetails} />
-      <Route path="/artist-details/biography" component={Biography} />
-      <Route exact path="/artist-details/discography" component={Discography} />
-      <Route path="/artist-details/discography/:id" component={AlbumDetails} />
-      <Route path="/artist-details/track/:trackName" component={Track} />
-      <Route path="/artist-details/video-music" component={VideoList} />
-    </Switch>
+    <div className="switch">
+      <Switch>
+        <Route exact path="/artist-details" component={ArtistDetails} />
+        <Route path="/artist-details/biography" component={Biography} />
+        <Route exact path="/artist-details/discography" component={Discography} />
+        <Route path="/artist-details/discography/:id" component={AlbumDetails} />
+        <Route path="/artist-details/track/:trackName" component={Track} />
+        <Route path="/artist-details/video-music" component={VideoList} />
+      </Switch>
+    </div>
   </div>
 );
 

@@ -1,17 +1,19 @@
 .Content {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-left: 23%;
   height: 100%;
 }
 
 .Content header {
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .Content header img {
   width: 100%;
+  height: 100%;
 }
