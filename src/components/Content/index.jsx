@@ -7,9 +7,12 @@ const Content = () => {
   const { strArtistBanner } = useSelector((state) => state.artistDetails);
   return (
     <div className="Content">
+      { strArtistBanner
+      && (
       <header>
-        {strArtistBanner && <img src={strArtistBanner} alt="artist banner" />}
+        <img src={strArtistBanner} alt="artist banner" />
       </header>
+      )}
       <ArtistRouters />
     </div>
   );

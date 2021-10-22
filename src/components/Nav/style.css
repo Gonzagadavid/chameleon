@@ -5,8 +5,7 @@
   align-items: center;
   flex-basis: 350px;
   box-shadow:  5px 5px 25px rgb(83, 82, 82);
-  background:rgb(0, 0, 0);
-  opacity: 90%;
+  background:rgba(0, 0, 0, 0.9);
   position: fixed;
   left: 0px;
   top: 0px;

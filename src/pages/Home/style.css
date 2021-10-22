@@ -3,6 +3,7 @@
   height: 100vh;
   background-image: url('../../images/vinil-universe.jpg');
   background-size: cover;
+  background-position: center;
   color: white;
   text-shadow: 6px 6px 10px rgb(0, 0, 0);
   font-size: 35px;

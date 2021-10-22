@@ -16,7 +16,9 @@ const VideoList = () => {
   if (!musicVideos.length) return <p>loading...</p>;
 
   return (
-    <TracksContainer trackList={musicVideos} title="Video Music" />
+    <div className="VideoList">
+      <TracksContainer trackList={musicVideos} title="Video Music" />
+    </div>
   );
 };
 
