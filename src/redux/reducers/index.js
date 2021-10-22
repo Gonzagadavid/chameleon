@@ -15,7 +15,7 @@ export const DEFAULT_STATE = {
   message: '',
 };
 
-const LOCAL_STORE_STATE = localStorage.getItem('artist_state') || false;
+const LOCAL_STORE_STATE = sessionStorage.getItem('artist_state') || false;
 
 const INITIAL_STATE = JSON.parse(LOCAL_STORE_STATE) || DEFAULT_STATE;
 

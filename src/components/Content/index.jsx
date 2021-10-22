@@ -8,7 +8,7 @@ const Content = () => {
   const stateRedux = useSelector((state) => state);
 
   useEffect(() => {
-    localStorage.setItem('artist_state', JSON.stringify(stateRedux));
+    sessionStorage.setItem('artist_state', JSON.stringify(stateRedux));
   }, []);
 
   return (
