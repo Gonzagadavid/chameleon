@@ -5,9 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./images/vinil-universe.jpg');
-  height: 100vh;
-  width: 100vw;
+  background-image: url('./images/goldNotes.jpg');
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
