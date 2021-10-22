@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import TracksContainer from '../../components/TracksContainer';
 import fetchVideos from '../../redux/fetchs/fetchVideos';
 import './style.css';
 
@@ -16,14 +16,7 @@ const VideoList = () => {
   if (!musicVideos.length) return <p>loading...</p>;
 
   return (
-    <div>
-      <h2>Videos Music</h2>
-      <ul>
-        { musicVideos.map(({ strTrack }) => (
-          <Link to={`/artist-details/track/${strTrack}`}><li>{strTrack}</li></Link>
-        ))}
-      </ul>
-    </div>
+    <TracksContainer trackList={musicVideos} title="Video Music" />
   );
 };
 
