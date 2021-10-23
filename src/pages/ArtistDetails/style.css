@@ -1,6 +1,17 @@
 .ArtistDetails {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
   min-height: 69vh;
+}
+
+.detailsContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  padding: 10px;
+  background:rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px white;
 }

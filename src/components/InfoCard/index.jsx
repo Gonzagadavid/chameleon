@@ -11,6 +11,7 @@ const InfoCard = () => {
         <p key={key}>
           {key}
           :
+          {' '}
           <span>{artistDetails[value]}</span>
         </p>
       ))}

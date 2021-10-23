@@ -5,8 +5,10 @@ import './style.css';
 
 const ArtistDetails = () => (
   <div className="ArtistDetails">
-    <InfoCard />
-    <InfoImage />
+    <div className="detailsContainer">
+      <InfoCard />
+      <InfoImage />
+    </div>
   </div>
 );
 
