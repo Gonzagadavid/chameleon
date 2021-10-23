@@ -1,3 +1,4 @@
+import getSession from '../../services/storage/getSession';
 import {
   ALBUM, ARTIST_CURRENT, ARTIST_DETAILS, DISCOGRAPHY, ERROR, LYRIC,
   MUSIC_VIDEOS, TRACKSBYALBUM, MESSAGE, RESET_STATE,
@@ -15,9 +16,9 @@ export const DEFAULT_STATE = {
   message: '',
 };
 
-const LOCAL_STORE_STATE = sessionStorage.getItem('artist_state') || false;
+const LOCAL_STORE_STATE = getSession('artist_state') || false;
 
-const INITIAL_STATE = JSON.parse(LOCAL_STORE_STATE) || DEFAULT_STATE;
+const INITIAL_STATE = LOCAL_STORE_STATE || DEFAULT_STATE;
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

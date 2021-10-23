@@ -1,4 +1,4 @@
-import fetchApi from '../../services/fetchApi';
+import fetchApi from '../../services/fetch/fetchApi';
 import { actionAlbum, actionError } from '../actions';
 
 const fetchAlbum = (id) => async (dispatch) => {

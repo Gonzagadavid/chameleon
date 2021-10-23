@@ -1,4 +1,4 @@
-import fetchApi from '../../services/fetchApi';
+import fetchApi from '../../services/fetch/fetchApi';
 import { actionArtistDetails, actionError, actionMessage } from '../actions';
 
 const fetchArtistDetails = (name) => async (dispatch) => {

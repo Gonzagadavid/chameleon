@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ArtistRouters from '../../routers/ArtistRouters';
+import setSession from '../../services/storage/setSession';
 import './style.css';
 
 const Content = () => {
@@ -8,7 +9,7 @@ const Content = () => {
   const stateRedux = useSelector((state) => state);
 
   useEffect(() => {
-    sessionStorage.setItem('artist_state', JSON.stringify(stateRedux));
+    setSession('artist_state', stateRedux);
   }, []);
 
   return (

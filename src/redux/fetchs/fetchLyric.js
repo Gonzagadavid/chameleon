@@ -1,5 +1,5 @@
 import initialUpperCase from '../../functions/initialUpperCase';
-import fetchApiText from '../../services/fetchApiText';
+import fetchApiText from '../../services/fetch/fetchApiText';
 import { actionError, actionLyric } from '../actions';
 
 const fetchLyric = (artist, title) => async (dispatch) => {
