@@ -1,12 +1,14 @@
 import React from 'react';
 import { CgWebsite } from 'react-icons/cg';
-import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai';
+import { AiOutlineTwitter } from 'react-icons/ai';
+import { FaFacebook } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import './style.css';
 
 const ContactCard = () => {
   const { strWebsite, strFacebook, strTwitter } = useSelector((state) => state.artistDetails);
   return (
-    <div>
+    <div className="ContactCard">
       {strWebsite && (
       <a href={`https://${strWebsite}`} target="_blank" rel="noreferrer">
         <CgWebsite />
@@ -14,7 +16,7 @@ const ContactCard = () => {
       )}
       {strFacebook && (
       <a href={`https://${strFacebook}`} target="_blank" rel="noreferrer">
-        <AiFillFacebook />
+        <FaFacebook />
       </a>
       )}
       {strTwitter && (

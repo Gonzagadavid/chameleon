@@ -16,21 +16,29 @@
 .Nav nav {
   flex: 1;
   margin-top: 10px;
+  width: 100%;
 }
 
 .Nav ul {
   list-style: none;
   padding: 0;
+  width: 100%;
 }
 
 .Nav li {
   display: flex;
-  width: 94%;
+  width: 100%;
+}
+
+.Nav a:hover {
+  background: linear-gradient(to left ,transparent, white 60%, transparent);
+  color: black;
+  height: 100%;
 }
 
 .Nav li a {
   flex: 1;
-  padding: 8px 20px 8px 45px;
+  padding: 15px 30px 15px 30px;
   margin-bottom: 10px;
   text-decoration: none;
   font-size: 1.5rem;

@@ -1,0 +1,15 @@
+.ContactCard {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  font-size: 30px;
+}
+
+.ContactCard a {
+  padding: 5px 10px 0;
+  border-radius: 50%;
+}
+
+.ContactCard a:hover {
+  background: white;
+}
