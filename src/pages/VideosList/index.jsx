@@ -6,7 +6,7 @@ import './style.css';
 
 const VideoList = () => {
   const artistID = useSelector((state) => state.artistDetails.idArtist);
-  const musicVideos = useSelector((state) => state.musicVideos) || [];
+  const musicVideos = useSelector((state) => state.musicVideos);
   const dispatch = useDispatch();
 
   const getVideos = useCallback(async () => {
