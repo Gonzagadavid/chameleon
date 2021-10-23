@@ -8,13 +8,16 @@ import './style.css';
 const Biography = () => {
   const [language, setLanguage] = useState('EN');
   const artistDetails = useSelector((state) => state.artistDetails);
-
   return (
     <div className="Biography">
-      <h2>Biography</h2>
-      <ImagesContainer />
-      <SelectLanguage setLanguage={setLanguage} objectItems={artistDetails} keyOption="strBiography" />
-      <BiographyContainer language={language} />
+      <div className="back">
+        <ImagesContainer />
+      </div>
+      <div className="text">
+        <h2>Biography</h2>
+        <SelectLanguage setLanguage={setLanguage} objectItems={artistDetails} keyOption="strBiography" />
+        <BiographyContainer language={language} />
+      </div>
     </div>
   );
 };

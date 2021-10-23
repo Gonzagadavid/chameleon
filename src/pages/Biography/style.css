@@ -1,4 +1,32 @@
 .Biography {
   display: flex;
   flex-direction: column;
+  position: relative;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  font-weight:normal;
+}
+
+.Biography .back {
+  position: fixed;
+  top:5px;
+  z-index: 1;
+}
+
+.Biography .text {
+  z-index: 2;
+  background:rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  word-spacing: 5px;
+  height: 100%;
+  width: 100%;
+}
+
+
+.Biography .text p {
+  width: 90%;
+  margin: auto;
+  line-height: 2;
 }
