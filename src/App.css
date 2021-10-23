@@ -7,6 +7,14 @@
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
 
 @font-face {
   font-family: kabut;

@@ -6,13 +6,15 @@ import './style.css';
 
 const VideoList = () => {
   const artistID = useSelector((state) => state.artistDetails.idArtist);
-  const musicVideos = useSelector((state) => state.musicVideos);
+  const musicVideos = useSelector((state) => state.musicVideos) || [];
   const dispatch = useDispatch();
 
   const getVideos = useCallback(async () => {
     await dispatch(fetchVideos(artistID));
   }, []);
   useEffect(() => { getVideos(); }, []);
+
+  console.log(musicVideos);
   if (!musicVideos.length) return <p>loading...</p>;
 
   return (
