@@ -1,7 +1,4 @@
 .SelectLanguage {
-
-}
-
-.SelectLanguage select {
-  
+  display: flex;
+  justify-content: center;
 }

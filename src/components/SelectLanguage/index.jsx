@@ -15,38 +15,71 @@ const SelectLanguage = ({ setLanguage, objectItems, keyOption }) => {
       <Select
         defaultValue={options[0]}
         styles={{
-          menu: (provided) => ({
-            ...provided,
-            width: '200px',
-            // borderBottom: '1px dotted pink',
+          menu: (base) => ({
+            ...base,
+            width: '150px',
             color: 'white',
-            backgroundColor: 'black',
+            background: 'rgba(0, 0, 0, 0.6)',
             padding: 20,
             position: 'absolute',
             margin: '0',
           }),
-          control: (_, { selectProps: { width } }) => ({
-            width,
-            backgroundColor: 'blue',
-            display: 'flex',
+
+          menuList: (base) => ({
+            ...base,
+
+            '::-webkit-scrollbar': {
+              width: '12px',
+            },
+            '::-webkit-scrollbar-track': {
+              background: 'black',
+            },
+            '::-webkit-scrollbar-thumb': {
+              background: 'white',
+            },
+            '::-webkit-scrollbar-thumb:hover': {
+              background: '#555',
+            },
           }),
 
-          singleValue: (provided, state) => {
+          dropdownIndicator: (base) => ({
+            ...base,
+            color: 'white',
+          }),
+
+          control: (_, { selectProps: { width } }) => ({
+            width,
+            background: 'rgba(0, 0, 0, 0.6)',
+            display: 'flex',
+            alignItems: 'center',
+            borderRadius: '8px',
+            border: 'solid 1px white',
+            height: '80%',
+          }),
+
+          option: (base) => ({
+            ...base,
+            ':hover': { backgroundColor: 'white', color: 'black' },
+            WebkitUserSelect: { backgroundColor: 'black' },
+            background: 'rgba(0, 0, 0, 0.6)',
+          }),
+
+          singleValue: (base, state) => {
             const opacity = state.isDisabled ? 0.5 : 1;
             const transition = 'opacity 300ms';
 
             return {
-              ...provided,
+              ...base,
               opacity,
               transition,
-              color: 'pink',
-              backgroundColor: 'black',
-              width: '150px',
+              color: 'white ',
+              background: 'rgba(0, 0, 0, 0.6)',
+              width: '100px',
               textAlign: 'center',
             };
           },
         }}
-        width="200px"
+        width="180px"
         options={options}
         onChange={({ value }) => setLanguage(value)}
         getOptionLabel={(e) => (
