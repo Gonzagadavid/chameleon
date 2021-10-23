@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import detailKeys from '../../constants';
+import detailKeys from '../../constants/data';
 import './style.css';
 
 const InfoCard = () => {
