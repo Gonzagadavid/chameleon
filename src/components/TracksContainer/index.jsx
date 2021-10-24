@@ -1,18 +1,22 @@
 import { arrayOf, shape, string } from 'prop-types';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import useFilterIncludes from '../../hooks/useFilterIncudles';
+import Empty from '../Empty';
+import SearchBar from '../SearchBar';
+import TrackCard from '../TrackCard';
 import './style.css';
 
-const TracksContainer = ({ trackList, title }) => (
-  <div className="TracksContainer">
-    <h2>{title}</h2>
-    <ul>
-      {trackList.map(({ strTrack }) => (
-        <Link to={`/artist-details/track/${strTrack}`}><li>{strTrack}</li></Link>
-      ))}
-    </ul>
-  </div>
-);
+const TracksContainer = ({ trackList }) => {
+  const [filteredTracks, setFilteredTracks] = useFilterIncludes(trackList);
+  return (
+    <div className="TracksContainer">
+      <SearchBar setFiltered={setFilteredTracks} objectKey="strTrack" />
+      {filteredTracks.length
+        ? filteredTracks.map(({ strTrack }) => <TrackCard trackName={strTrack} />)
+        : <Empty />}
+    </div>
+  );
+};
 
 export default TracksContainer;
 
@@ -20,5 +24,4 @@ TracksContainer.propTypes = {
   trackList: arrayOf([shape({
     strTrack: string,
   })]).isRequired,
-  title: string.isRequired,
 };
