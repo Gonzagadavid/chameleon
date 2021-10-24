@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { actionArtistCurrent, actionMessage } from '../../redux/actions';
+import { actionArtistCurrent, actionMessage, actionResetState } from '../../redux/actions';
 import fetchArtistDetails from '../../redux/fetchs/fetchArtistDetails';
 import './style.css';
 
@@ -32,6 +32,11 @@ const Home = () => {
   useEffect(() => {
     if (Object.keys(artistDetails).length && redirect) history.push('/artist-details');
   }, [artistDetails]);
+
+  useEffect(() => {
+    sessionStorage.clear('artist_state');
+    dispatch(actionResetState);
+  }, []);
 
   return (
     <div className="Home">

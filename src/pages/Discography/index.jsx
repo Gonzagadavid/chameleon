@@ -7,6 +7,7 @@ import './style.css';
 
 const Discography = () => {
   const artistID = useSelector((state) => state.artistDetails.idArtist);
+  const albums = useSelector((state) => state.albums);
   const dispatch = useDispatch();
 
   const getDiscography = useCallback(async () => {
@@ -17,7 +18,7 @@ const Discography = () => {
   return (
     <div className="Discography">
       <h2>Discography</h2>
-      <AlbumsContainer />
+      { albums.length ? <AlbumsContainer albums={albums} /> : <p>Loading...</p>}
     </div>
   );
 };
