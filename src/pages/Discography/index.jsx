@@ -11,6 +11,8 @@ const Discography = () => {
   const dispatch = useDispatch();
 
   const getDiscography = useCallback(async () => {
+    if (albums.length) return;
+    console.log('requisição');
     await dispatch(fetchDiscography(artistID));
     await dispatch(fetchVideos(artistID));
   }, []);
