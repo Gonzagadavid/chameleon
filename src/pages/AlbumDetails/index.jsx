@@ -9,7 +9,6 @@ import Loading from '../../components/Loading';
 
 const AlbumDetails = ({ match: { params: { id } } }) => {
   const trackList = useSelector((state) => state.trackList);
-  const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
   const getTracks = useCallback(async () => dispatch(fetchTrackByAlbum(id)), []);
   useEffect(() => getTracks(), []);
@@ -19,7 +18,7 @@ const AlbumDetails = ({ match: { params: { id } } }) => {
       <h2>Album Details</h2>
       <AlbumDetailsContainer id={id} />
       <h2>Tracks</h2>
-      {loading ? <Loading /> : <TracksContainer trackList={trackList} />}
+      {!trackList.length ? <Loading /> : <TracksContainer trackList={trackList} />}
     </div>
   );
 };

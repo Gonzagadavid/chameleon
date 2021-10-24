@@ -2,6 +2,7 @@ import { arrayOf, string } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoLogoYoutube } from 'react-icons/io';
+import { MdQueueMusic } from 'react-icons/md';
 import './style.css';
 
 const TrackCard = ({ trackName, videosTrack }) => {
@@ -12,7 +13,12 @@ const TrackCard = ({ trackName, videosTrack }) => {
       <Link to={`/artist-details/track/${trackName}`}>
         {trackName}
         <div className="icon">
-          {checkVideo && <IoLogoYoutube />}
+          <span><MdQueueMusic /></span>
+          {checkVideo && (
+          <span>
+            <IoLogoYoutube />
+          </span>
+          )}
         </div>
       </Link>
     </div>

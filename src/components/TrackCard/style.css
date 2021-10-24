@@ -26,3 +26,7 @@
   font-size: 80px;
   justify-content: flex-end;
 }
+
+.icon span {
+  margin: 0 10px;
+}
