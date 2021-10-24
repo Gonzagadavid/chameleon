@@ -10,7 +10,7 @@ const SearchBar = ({ setFiltered, objectKey }) => {
   }, [search]);
 
   return (
-    <div>
+    <div className="SearchBar">
       <input value={search} onInput={({ target: { value } }) => setSearch(value)} placeholder="Search By Title..." />
     </div>
   );
