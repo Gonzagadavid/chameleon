@@ -13,7 +13,7 @@ const AlbumDetails = ({ match: { params: { id } } }) => {
   const dispatch = useDispatch();
   const getTracks = useCallback(async () => dispatch(fetchTrackByAlbum(id)), []);
   useEffect(() => getTracks(), []);
-  console.log(loading);
+
   return (
     <div className="AlbumDetails">
       <h2>Album Details</h2>

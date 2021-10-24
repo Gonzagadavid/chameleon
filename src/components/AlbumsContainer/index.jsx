@@ -11,9 +11,11 @@ const AlbumsContainer = ({ albums }) => {
   return (
     <div className="AlbumsContainer">
       <SearchBar setFiltered={setFilteredALbums} objectKey="strAlbum" />
-      { filteredAlbums.length
-        ? filteredAlbums.map((album) => <AlbumCard key={album.idAlbum} album={album} />)
-        : <Empty />}
+      <div className="albumList">
+        { filteredAlbums.length
+          ? filteredAlbums.map((album) => <AlbumCard key={album.idAlbum} album={album} />)
+          : <Empty />}
+      </div>
     </div>
   );
 };
