@@ -43,7 +43,10 @@ const selectStyles = {
 
   option: (base) => ({
     ...base,
-    ':hover': { backgroundColor: 'white', color: 'black' },
+    ':hover': {
+      background: 'linear-gradient(to right,transparent, white, transparent)',
+      color: 'black',
+    },
     WebkitUserSelect: { backgroundColor: 'black' },
     background: 'rgba(0, 0, 0, 0.6)',
   }),
