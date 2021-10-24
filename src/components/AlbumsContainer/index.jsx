@@ -1,19 +1,15 @@
 import { arrayOf } from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import useFilterIncludes from '../../hooks/useFilterIncudles';
 import AlbumCard from '../AlbumCard';
+import SearchBar from '../SearchBar';
 import './style.css';
 
 const AlbumsContainer = ({ albums }) => {
-  const [search, setSearch] = useState('');
   const [filteredAlbums, setFilteredALbums] = useFilterIncludes(albums);
-
-  useEffect(() => {
-    setFilteredALbums(search, 'strAlbum');
-  }, [search]);
   return (
     <div className="AlbumsContainer">
-      <input value={search} onInput={({ target: { value } }) => setSearch(value)} placeholder="Search By Title..." />
+      <SearchBar setFiltered={setFilteredALbums} objectKey="strAlbum" />
       {filteredAlbums.map((album) => <AlbumCard key={album.idAlbum} album={album} />)}
     </div>
   );
