@@ -1,7 +1,8 @@
 import fetchApi from '../../services/fetch/fetchApi';
-import { actionError, actionMusicVideos } from '../actions';
+import { actionError, actionLoading, actionMusicVideos } from '../actions';
 
 const fetchVideos = (id) => async (dispatch) => {
+  dispatch(actionLoading);
   const { mvids, error } = await fetchApi(`https://theaudiodb.com/api/v1/json/1/mvid.php?i=${id}`);
 
   if (error) return dispatch(actionError);

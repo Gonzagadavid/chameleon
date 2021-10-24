@@ -1,7 +1,10 @@
 import fetchApi from '../../services/fetch/fetchApi';
-import { actionArtistDetails, actionError, actionMessage } from '../actions';
+import {
+  actionArtistDetails, actionError, actionLoading, actionMessage,
+} from '../actions';
 
 const fetchArtistDetails = (name) => async (dispatch) => {
+  dispatch(actionLoading);
   const { artists, error } = await fetchApi(`https://theaudiodb.com/api/v1/json/1/search.php?s=${name}`);
 
   if (error) return dispatch(actionError);

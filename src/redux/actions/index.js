@@ -18,6 +18,8 @@ export const MESSAGE = 'MESSAGE';
 
 export const RESET_STATE = 'RESET_STATE';
 
+export const LOADING = 'LOADING';
+
 export const actionError = { type: ERROR, state: 'Ocorreu um erro na aplicação, tente novamente mais tarde!' };
 
 export const actionArtistDetails = (state) => ({ type: ARTIST_DETAILS, state });
@@ -37,3 +39,5 @@ export const actionLyric = (state) => ({ type: LYRIC, state });
 export const actionMessage = (state) => ({ type: MESSAGE, state });
 
 export const actionResetState = { type: RESET_STATE };
+
+export const actionLoading = { type: LOADING };
