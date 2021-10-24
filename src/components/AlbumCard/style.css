@@ -1,7 +1,7 @@
 .AlbumCard {
   display: flex;
   width: 80%;
-  background-color: #ccc;
+  background-color: rgb(48, 44, 44);
   margin: 10px 0;
 }
 .AlbumCard a {

@@ -1,5 +1,6 @@
 import { arrayOf, shape, string } from 'prop-types';
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import useFilterIncludes from '../../hooks/useFilterIncudles';
 import Empty from '../Empty';
 import SearchBar from '../SearchBar';
@@ -12,7 +13,7 @@ const TracksContainer = ({ trackList }) => {
     <div className="TracksContainer">
       <SearchBar setFiltered={setFilteredTracks} objectKey="strTrack" />
       {filteredTracks.length
-        ? filteredTracks.map(({ strTrack }) => <TrackCard trackName={strTrack} />)
+        ? filteredTracks.map(({ strTrack }) => <TrackCard key={uuidv4()} trackName={strTrack} />)
         : <Empty />}
     </div>
   );
@@ -21,7 +22,7 @@ const TracksContainer = ({ trackList }) => {
 export default TracksContainer;
 
 TracksContainer.propTypes = {
-  trackList: arrayOf([shape({
+  trackList: arrayOf(shape({
     strTrack: string,
-  })]).isRequired,
+  })).isRequired,
 };

@@ -7,9 +7,7 @@ const fetchVideos = (id) => async (dispatch) => {
 
   if (error) return dispatch(actionError);
 
-  if (!mvids) return dispatch(actionMusicVideos([{ strTrack: 'Not Found Videos' }]));
-
-  return dispatch(actionMusicVideos(mvids));
+  return dispatch(actionMusicVideos(mvids || []));
 };
 
 export default fetchVideos;

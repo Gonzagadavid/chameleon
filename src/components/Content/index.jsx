@@ -13,7 +13,7 @@ const Content = () => {
 
   useEffect(() => {
     setSession('artist_state', stateRedux);
-  }, []);
+  }, [stateRedux]);
 
   return (
     <div className="Content">

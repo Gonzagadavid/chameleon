@@ -1,7 +1,7 @@
 import { string, shape } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import notFoundImage from '../../images/notFoundImage.png';
+import NotFoundImage from '../../images/empty-image.png';
 import './style.css';
 
 const AlbumCard = ({ album }) => {
@@ -12,7 +12,7 @@ const AlbumCard = ({ album }) => {
     <div className="AlbumCard">
       <Link to={`/artist-details/discography/${idAlbum}`}>
         <div className="imgAlbum">
-          <img src={strAlbumThumb || notFoundImage} alt="album cover" />
+          <img src={strAlbumThumb || NotFoundImage} alt="album cover" />
         </div>
         <div className="infoAlbum">
           <h3>{strAlbum}</h3>

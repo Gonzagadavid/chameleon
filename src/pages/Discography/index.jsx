@@ -20,8 +20,6 @@ const Discography = () => {
 
   useEffect(() => { getDiscography(); }, []);
 
-  // if (loading) return <Loading />;
-
   return (
     <div className="Discography">
       <h2>Discography</h2>

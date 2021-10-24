@@ -1,4 +1,4 @@
-import { arrayOf } from 'prop-types';
+import { arrayOf, objectOf } from 'prop-types';
 import React from 'react';
 import useFilterIncludes from '../../hooks/useFilterIncudles';
 import AlbumCard from '../AlbumCard';
@@ -21,5 +21,5 @@ const AlbumsContainer = ({ albums }) => {
 export default AlbumsContainer;
 
 AlbumsContainer.propTypes = {
-  albums: arrayOf(['objectOf']).isRequired,
+  albums: arrayOf(objectOf).isRequired,
 };

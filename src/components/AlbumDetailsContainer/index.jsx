@@ -26,7 +26,7 @@ const AlbumDetailsContainer = ({ id }) => {
         <span>{`(${intYearReleased})`}</span>
       </h3>
       <img src={strAlbumThumb} alt="album front" />
-      <SelectLanguage setLanguage={setLanguage} objectItems={album} keyOption="strDescription" />
+      {description && <SelectLanguage setLanguage={setLanguage} objectItems={album} keyOption="strDescription" />}
       <p>{description}</p>
     </div>
   );
