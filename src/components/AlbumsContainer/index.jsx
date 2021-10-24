@@ -2,6 +2,7 @@ import { arrayOf } from 'prop-types';
 import React from 'react';
 import useFilterIncludes from '../../hooks/useFilterIncudles';
 import AlbumCard from '../AlbumCard';
+import Empty from '../Empty';
 import SearchBar from '../SearchBar';
 import './style.css';
 
@@ -10,7 +11,9 @@ const AlbumsContainer = ({ albums }) => {
   return (
     <div className="AlbumsContainer">
       <SearchBar setFiltered={setFilteredALbums} objectKey="strAlbum" />
-      {filteredAlbums.map((album) => <AlbumCard key={album.idAlbum} album={album} />)}
+      { filteredAlbums.length
+        ? filteredAlbums.map((album) => <AlbumCard key={album.idAlbum} album={album} />)
+        : <Empty />}
     </div>
   );
 };
