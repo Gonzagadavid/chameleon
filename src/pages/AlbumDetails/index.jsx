@@ -17,7 +17,7 @@ const AlbumDetails = ({ match: { params: { id } } }) => {
     <div className="AlbumDetails">
       <h2>Album Details</h2>
       <AlbumDetailsContainer id={id} />
-      <h2>Tracks</h2>
+      <h3>Tracks</h3>
       {!trackList.length ? <Loading /> : <TracksContainer trackList={trackList} />}
     </div>
   );

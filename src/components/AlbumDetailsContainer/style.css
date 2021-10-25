@@ -1,9 +1,22 @@
-.albumImages {
+.AlbumDetailsContainer{
   display: flex;
-  width: 100%;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  width: 90%;
+  font-size: 25px;
+  box-shadow: 0 0 10px white;
+  padding: 20px 0;
+  margin: 20px;
 }
 
-.albumImages img {
-  width: 40%;
+.description {
+  margin: 50px 0;
+}
+
+.description p {
+  padding: 0 20px;
+  word-spacing: 5px;
+  line-height: 2;
+  margin: 20px;
 }

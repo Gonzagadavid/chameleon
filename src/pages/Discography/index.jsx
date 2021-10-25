@@ -9,12 +9,15 @@ import './style.css';
 const Discography = () => {
   const artistID = useSelector((state) => state.artistDetails.idArtist);
   const albums = useSelector((state) => state.albums);
+  const videos = useSelector((state) => state.musicVideos);
   const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
 
   const getDiscography = useCallback(async () => {
     if (albums.length) return;
     await dispatch(fetchDiscography(artistID));
+
+    if (videos.length) return;
     await dispatch(fetchVideos(artistID));
   }, []);
 

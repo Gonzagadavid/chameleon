@@ -13,12 +13,12 @@ const TrackCard = ({ trackName, videosTrack }) => {
       <Link to={`/artist-details/track/${trackName}`}>
         {trackName}
         <div className="icon">
-          <span><MdQueueMusic /></span>
           {checkVideo && (
-          <span>
-            <IoLogoYoutube />
-          </span>
+            <span>
+              <IoLogoYoutube />
+            </span>
           )}
+          <span><MdQueueMusic /></span>
         </div>
       </Link>
     </div>

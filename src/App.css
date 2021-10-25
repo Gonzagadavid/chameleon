@@ -16,6 +16,10 @@ a:visited {
   color: white;
 }
 
+h2 {
+  font-size: 50px;
+}
+
 @font-face {
   font-family: kabut;
   src: url('./fonts/kabut_hitam/Kabut\ Hitam.ttf');

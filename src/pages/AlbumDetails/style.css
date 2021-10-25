@@ -3,3 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
+
+.AlbumDetails h3 {
+  font-size: 35px;
+}
