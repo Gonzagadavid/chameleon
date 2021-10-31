@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './style.css';
 import { string } from 'prop-types';
-import favoriteState from '../../services/favorites/favoriteState';
+import favoriteState from '../../services/favorites/check/favoriteState';
 import favoriteAdm from '../../services/favorites/favoriteAdm';
 
 const Favorite = ({ item }) => {
