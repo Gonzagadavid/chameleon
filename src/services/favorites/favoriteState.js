@@ -1,5 +1,5 @@
-import checkAlbumExists from './checkAlbumExists';
-import checkFavoritesExists from './checkFavoritesExists';
+import checkAlbumExists from './check/checkAlbumExists';
+import checkFavoritesExists from './check/checkFavoritesExists';
 
 const favoriteState = (artist, pathName, item) => {
   if (!checkFavoritesExists(artist)) return false;

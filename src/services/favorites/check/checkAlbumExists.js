@@ -1,4 +1,4 @@
-import getFavorite from './getFavorite';
+import getFavorite from '../add/get/getFavorite';
 
 const checkAlbumExists = (artist, item) => {
   const favorite = getFavorite(artist);

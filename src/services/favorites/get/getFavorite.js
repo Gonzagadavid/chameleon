@@ -1,4 +1,4 @@
-import getLocal from '../storage/getLocal';
+import getLocal from '../../storage/getLocal';
 
 const getFavorite = (artist) => {
   const favorites = getLocal('favorite-artist') || {};

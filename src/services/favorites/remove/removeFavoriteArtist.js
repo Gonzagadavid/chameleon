@@ -1,6 +1,6 @@
-import getLocal from '../storage/getLocal';
-import setLocal from '../storage/setLocal';
-import getFavoritesArtists from './getFavoritesArtists';
+import getLocal from '../../storage/getLocal';
+import setLocal from '../../storage/setLocal';
+import getFavoritesArtists from '../get/getFavoritesArtists';
 
 const removeFavoriteArtist = (artist) => {
   const favoritesKeys = getFavoritesArtists().filter((artistKey) => artistKey !== artist);

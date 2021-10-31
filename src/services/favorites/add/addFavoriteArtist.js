@@ -1,6 +1,6 @@
-import getLocal from '../storage/getLocal';
-import setLocal from '../storage/setLocal';
-import checkFavoritesExists from './checkFavoritesExists';
+import getLocal from '../../storage/getLocal';
+import setLocal from '../../storage/setLocal';
+import checkFavoritesExists from '../check/checkFavoritesExists';
 
 const addFavoriteArtist = (artistName) => {
   const favorites = getLocal('favorite-artist') || {};

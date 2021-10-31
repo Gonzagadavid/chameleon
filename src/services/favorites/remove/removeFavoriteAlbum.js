@@ -1,6 +1,6 @@
-import setLocal from '../storage/setLocal';
-import getFavorite from './getFavorite';
-import getFavorites from './getFavorites';
+import setLocal from '../../storage/setLocal';
+import getFavorite from '../get/getFavorite';
+import getFavorites from '../get/getFavorites';
 
 const removeFavoriteAlbum = (artist, item) => {
   const favorites = getFavorites();
