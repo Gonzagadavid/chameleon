@@ -1,3 +1,4 @@
+import { ARTIST_STATE } from '../../constants/storage';
 import getSession from '../../services/storage/getSession';
 import {
   ALBUM, ARTIST_CURRENT, ARTIST_DETAILS, DISCOGRAPHY, ERROR, LYRIC,
@@ -17,7 +18,7 @@ export const DEFAULT_STATE = {
   loading: false,
 };
 
-const LOCAL_STORE_STATE = getSession('artist_state') || false;
+const LOCAL_STORE_STATE = getSession(ARTIST_STATE) || false;
 
 const INITIAL_STATE = LOCAL_STORE_STATE || DEFAULT_STATE;
 

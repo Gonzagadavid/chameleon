@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { ARTIST_STATE } from '../../constants/storage';
 import { actionArtistCurrent, actionMessage, actionResetState } from '../../redux/actions';
 import fetchArtistDetails from '../../redux/fetchs/fetchArtistDetails';
 import './style.css';
@@ -34,7 +35,7 @@ const Home = () => {
   }, [artistDetails]);
 
   useEffect(() => {
-    sessionStorage.clear('artist_state');
+    sessionStorage.clear(ARTIST_STATE);
     dispatch(actionResetState);
   }, []);
 
