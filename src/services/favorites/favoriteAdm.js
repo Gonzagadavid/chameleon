@@ -1,6 +1,6 @@
 import addFavorite from './add/addFavorite';
 import checkFavoritesExists from './check/checkFavoritesExists';
-import favoriteState from './favoriteState';
+import favoriteState from './check/favoriteState';
 import removeFavorite from './remove/removeFavorite';
 
 const favoriteAdm = (artist, pathName, item) => {

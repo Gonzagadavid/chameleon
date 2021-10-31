@@ -1,12 +1,13 @@
+import { FAVORITE_KEY } from '../../../constants/storage';
 import getLocal from '../../storage/getLocal';
 import setLocal from '../../storage/setLocal';
 import checkFavoritesExists from '../check/checkFavoritesExists';
 
 const addFavoriteArtist = (artistName) => {
-  const favorites = getLocal('favorite-artist') || {};
+  const favorites = getLocal(FAVORITE_KEY) || {};
   if (checkFavoritesExists()) return;
   favorites[artistName] = { track: [], albums: [] };
-  setLocal('favorite-artist', favorites);
+  setLocal(FAVORITE_KEY, favorites);
 };
 
 export default addFavoriteArtist;

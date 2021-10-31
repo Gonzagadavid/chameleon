@@ -1,4 +1,4 @@
-import getFavoritesArtists from '../add/get/getFavoritesArtists';
+import getFavoritesArtists from '../get/getFavoritesArtists';
 
 const checkFavoritesExists = (artistName) => getFavoritesArtists().includes(artistName);
 
