@@ -7,6 +7,9 @@ import Biography from '../../pages/Biography';
 import Discography from '../../pages/Discography';
 import Track from '../../pages/Track';
 import VideoList from '../../pages/VideosList';
+import {
+  ARTIST_DETAILS, BIOGRAPHY, DISCOGRAPHY, ALBUM_DETAILS, TRACK, VIDEOS,
+} from '../../constants/routes';
 import './style.css';
 
 const ArtistRouters = () => (
@@ -14,12 +17,12 @@ const ArtistRouters = () => (
     <Nav />
     <div className="switch">
       <Switch>
-        <Route exact path="/artist-details" component={ArtistDetails} />
-        <Route path="/artist-details/biography" component={Biography} />
-        <Route exact path="/artist-details/discography" component={Discography} />
-        <Route path="/artist-details/discography/:id" component={AlbumDetails} />
-        <Route path="/artist-details/track/:trackName" component={Track} />
-        <Route path="/artist-details/video-music" component={VideoList} />
+        <Route exact path={ARTIST_DETAILS} component={ArtistDetails} />
+        <Route path={BIOGRAPHY} component={Biography} />
+        <Route exact path={DISCOGRAPHY} component={Discography} />
+        <Route path={ALBUM_DETAILS} component={AlbumDetails} />
+        <Route path={TRACK} component={Track} />
+        <Route path={VIDEOS} component={VideoList} />
       </Switch>
     </div>
   </div>
