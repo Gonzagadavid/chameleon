@@ -2,6 +2,7 @@ import { string } from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import fetchAlbum from '../../redux/fetchs/fetchAlbum';
+import Favorite from '../Favorite';
 import SelectLanguage from '../SelectLanguage';
 import './style.css';
 
@@ -16,12 +17,13 @@ const AlbumDetailsContainer = ({ id }) => {
 
   const description = album[`strDescription${language}`];
   const {
-    strAlbum, strAlbumThumb, intYearReleased,
+    strAlbum, strAlbumThumb, intYearReleased, idAlbum,
   } = album;
 
   return (
     <div className="AlbumDetailsContainer">
       <h3>
+        <Favorite item={idAlbum} />
         { strAlbum }
         <span>{`(${intYearReleased})`}</span>
       </h3>
