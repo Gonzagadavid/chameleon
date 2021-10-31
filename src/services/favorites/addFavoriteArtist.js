@@ -4,7 +4,8 @@ import checkFavoritesExists from './checkFavoritesExists';
 
 const addFavoriteArtist = (artistName) => {
   const favorites = getLocal('favorite-artist') || {};
-  if (checkFavoritesExists) return;
+  console.log(artistName);
+  if (checkFavoritesExists()) return;
   favorites[artistName] = { track: [], albums: [] };
   setLocal('favorite-artist', favorites);
 };

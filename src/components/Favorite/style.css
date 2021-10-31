@@ -1,4 +1,9 @@
 .Favorite {
-  font-size: 35px;
+  font-size: 40px;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
