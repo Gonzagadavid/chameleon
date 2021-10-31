@@ -1,7 +1,7 @@
 import { FAVORITE_KEY } from '../../../constants/storage';
 import getLocal from '../../storage/getLocal';
-import setLocal from '../../storage/setLocal';
 import getFavoritesArtists from '../get/getFavoritesArtists';
+import setFavorites from '../set/setFavorites';
 
 const removeFavoriteArtist = (artist) => {
   const favoritesKeys = getFavoritesArtists().filter((artistKey) => artistKey !== artist);
@@ -11,7 +11,7 @@ const removeFavoriteArtist = (artist) => {
     objFavorites[key] = favorites[key];
     return objFavorites;
   }, {});
-  setLocal(FAVORITE_KEY, newFavorites);
+  setFavorites(newFavorites);
 };
 
 export default removeFavoriteArtist;
