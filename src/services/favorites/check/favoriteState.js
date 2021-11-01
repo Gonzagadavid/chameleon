@@ -2,10 +2,10 @@ import { ARTIST_DETAILS } from '../../../constants/routes';
 import checkAlbumExists from './checkAlbumExists';
 import checkFavoritesExists from './checkFavoritesExists';
 
-const favoriteState = (artist, pathName, item) => {
-  if (!checkFavoritesExists(artist)) return false;
-  if (pathName === ARTIST_DETAILS) return checkFavoritesExists(artist);
-  if (/discography/g.test(pathName)) return checkAlbumExists(artist, item);
+const favoriteState = (pathName, item) => {
+  if (!checkFavoritesExists()) return false;
+  if (pathName === ARTIST_DETAILS) return checkFavoritesExists();
+  if (/discography/g.test(pathName)) return checkAlbumExists(item);
   return false;
 };
 

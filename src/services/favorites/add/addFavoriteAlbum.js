@@ -1,12 +1,20 @@
+import store from '../../../redux/store';
 import getFavorite from '../get/getFavorite';
 import getFavorites from '../get/getFavorites';
 import setFavorites from '../set/setFavorites';
 
-const addFavoriteAlbum = (artist, album) => {
+const addFavoriteAlbum = (album) => {
+  const { artistCurrent } = store.getState();
   const favorites = getFavorites();
-  const { albums } = getFavorite(artist);
+  const { albums } = getFavorite(artistCurrent);
   const newAlbums = [...albums, album];
-  const newFavorites = { ...favorites, [artist]: { ...favorites[artist], albums: newAlbums } };
+  const newFavorites = {
+    ...favorites,
+    [artistCurrent]: {
+      ...favorites[artistCurrent],
+      albums: newAlbums,
+    },
+  };
   return setFavorites(newFavorites);
 };
 export default addFavoriteAlbum;

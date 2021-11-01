@@ -1,5 +1,9 @@
+import store from '../../../redux/store';
 import getFavoritesArtists from '../get/getFavoritesArtists';
 
-const checkFavoritesExists = (artistName) => getFavoritesArtists().includes(artistName);
+const checkFavoritesExists = () => {
+  const { artistCurrent } = store.getState();
+  return getFavoritesArtists().includes(artistCurrent);
+};
 
 export default checkFavoritesExists;

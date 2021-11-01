@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import './style.css';
 import { string } from 'prop-types';
 import favoriteState from '../../services/favorites/check/favoriteState';
@@ -9,18 +8,17 @@ import favoriteAdm from '../../services/favorites/favoriteAdm';
 
 const Favorite = ({ item }) => {
   const [favorite, setFavorite] = useState(false);
-  const artistCurrent = useSelector((state) => state.artistCurrent);
   const history = useHistory();
   const pathName = history.location.pathname;
 
   useEffect(() => {
-    const checkState = favoriteState(artistCurrent, pathName, item);
+    const checkState = favoriteState(pathName, item);
     setFavorite(checkState);
   }, []);
 
   const handleFavorite = () => {
     setFavorite(!favorite);
-    favoriteAdm(artistCurrent, pathName, item);
+    favoriteAdm(pathName, item);
   };
 
   return (
