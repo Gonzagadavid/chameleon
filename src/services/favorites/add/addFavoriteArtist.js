@@ -5,10 +5,10 @@ import checkFavoritesExists from '../check/checkFavoritesExists';
 import setFavorites from '../set/setFavorites';
 
 const addFavoriteArtist = () => {
-  const { artistCurrent } = store.getState();
+  const { artistCurrent, logo } = store.getState();
   const favorites = getLocal(FAVORITE_KEY) || {};
   if (checkFavoritesExists()) return;
-  favorites[artistCurrent.toLowerCase()] = { tracks: [], albums: [] };
+  favorites[artistCurrent.toLowerCase()] = { tracks: [], albums: [], logo };
   setFavorites(favorites);
 };
 

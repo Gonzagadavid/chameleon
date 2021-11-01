@@ -12,6 +12,7 @@ export const DEFAULT_STATE = {
   album: null,
   trackList: [],
   artistCurrent: null,
+  logo: '',
   musicVideos: [],
   lyric: '',
   message: '',
@@ -33,7 +34,12 @@ const reducer = (state = INITIAL_STATE, action) => {
       };
 
     case ARTIST_DETAILS:
-      return { ...state, artistDetails: action.state, loading: false };
+      return {
+        ...state,
+        artistDetails: action.state,
+        logo: action.state.strArtistLogo,
+        loading: false,
+      };
 
     case DISCOGRAPHY:
       return { ...state, albums: action.state, loading: false };
