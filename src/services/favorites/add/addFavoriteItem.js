@@ -3,16 +3,16 @@ import getFavorite from '../get/getFavorite';
 import getFavorites from '../get/getFavorites';
 import setFavorites from '../set/setFavorites';
 
-const addFavoriteAlbum = (album) => {
+const addFavoriteAlbum = (type, item) => {
   const { artistCurrent } = store.getState();
   const favorites = getFavorites();
-  const { albums } = getFavorite(artistCurrent);
-  const newAlbums = [...albums, album];
+  const favorite = getFavorite();
+  const newAlbums = [...favorite[type], item];
   const newFavorites = {
     ...favorites,
     [artistCurrent]: {
       ...favorites[artistCurrent],
-      albums: newAlbums,
+      [type]: newAlbums,
     },
   };
   return setFavorites(newFavorites);

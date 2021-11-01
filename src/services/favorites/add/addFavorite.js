@@ -1,12 +1,11 @@
-import addFavoriteAlbum from './addFavoriteAlbum';
+import addFavoriteItem from './addFavoriteItem';
 import addFavoriteArtist from './addFavoriteArtist';
 import checkFavoritesExists from '../check/checkFavoritesExists';
-import { ARTIST_DETAILS } from '../../../constants/routes';
+import { ARTIST } from '../../../constants/types';
 
-const addFavorite = (pathName, item) => {
+const addFavorite = (type, item) => {
   if (!checkFavoritesExists()) addFavoriteArtist();
-  if (pathName === ARTIST_DETAILS) return null;
-  if (/discography/g.test(pathName)) return addFavoriteAlbum(item);
-  return null;
+  if (type === ARTIST) return null;
+  return addFavoriteItem(type, item);
 };
 export default addFavorite;

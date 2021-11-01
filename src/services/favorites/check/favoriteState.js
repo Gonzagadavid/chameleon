@@ -1,12 +1,11 @@
-import { ARTIST_DETAILS } from '../../../constants/routes';
+import { ARTIST } from '../../../constants/types';
 import checkAlbumExists from './checkAlbumExists';
 import checkFavoritesExists from './checkFavoritesExists';
 
-const favoriteState = (pathName, item) => {
+const favoriteState = (type, item) => {
   if (!checkFavoritesExists()) return false;
-  if (pathName === ARTIST_DETAILS) return checkFavoritesExists();
-  if (/discography/g.test(pathName)) return checkAlbumExists(item);
-  return false;
+  if (type === ARTIST) return checkFavoritesExists();
+  return checkAlbumExists(type, item);
 };
 
 export default favoriteState;

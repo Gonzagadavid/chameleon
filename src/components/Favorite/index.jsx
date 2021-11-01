@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
-import { useHistory } from 'react-router-dom';
 import './style.css';
 import { string } from 'prop-types';
 import favoriteState from '../../services/favorites/check/favoriteState';
 import favoriteAdm from '../../services/favorites/favoriteAdm';
 
-const Favorite = ({ item }) => {
+const Favorite = ({ item, type }) => {
   const [favorite, setFavorite] = useState(false);
-  const history = useHistory();
-  const pathName = history.location.pathname;
 
   useEffect(() => {
-    const checkState = favoriteState(pathName, item);
+    const checkState = favoriteState(type, item);
     setFavorite(checkState);
   }, []);
 
   const handleFavorite = () => {
     setFavorite(!favorite);
-    favoriteAdm(pathName, item);
+    favoriteAdm(type, item);
   };
 
   return (
@@ -32,6 +29,7 @@ export default Favorite;
 
 Favorite.propTypes = {
   item: string,
+  type: string.isRequired,
 };
 
 Favorite.defaultProps = {

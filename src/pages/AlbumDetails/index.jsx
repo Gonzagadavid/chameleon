@@ -6,12 +6,17 @@ import AlbumDetailsContainer from '../../components/AlbumDetailsContainer';
 import TracksContainer from '../../components/TracksContainer';
 import './style.css';
 import Loading from '../../components/Loading';
+import { actionTrackByAlbum } from '../../redux/actions';
 
 const AlbumDetails = ({ match: { params: { id } } }) => {
   const trackList = useSelector((state) => state.trackList);
   const dispatch = useDispatch();
   const getTracks = useCallback(async () => dispatch(fetchTrackByAlbum(id)), []);
-  useEffect(() => getTracks(), []);
+
+  useEffect(() => {
+    getTracks();
+    return () => dispatch(actionTrackByAlbum([]));
+  }, []);
 
   return (
     <div className="AlbumDetails">

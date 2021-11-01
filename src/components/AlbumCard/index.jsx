@@ -1,6 +1,7 @@
 import { string, shape } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ALBUMS } from '../../constants/types';
 import NotFoundImage from '../../images/empty-image.png';
 import Favorite from '../Favorite';
 import './style.css';
@@ -11,7 +12,7 @@ const AlbumCard = ({ album }) => {
   } = album;
   return (
     <div className="AlbumCard">
-      <Favorite item={idAlbum} />
+      <Favorite item={idAlbum} type={ALBUMS} />
       <Link to={`/artist-details/discography/${idAlbum}`}>
         <div className="imgAlbum">
           <img src={strAlbumThumb || NotFoundImage} alt="album cover" />

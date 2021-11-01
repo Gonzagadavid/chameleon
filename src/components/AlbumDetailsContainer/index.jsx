@@ -1,8 +1,10 @@
 import { string } from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ALBUMS } from '../../constants/types';
 import fetchAlbum from '../../redux/fetchs/fetchAlbum';
 import Favorite from '../Favorite';
+import Loading from '../Loading';
 import SelectLanguage from '../SelectLanguage';
 import './style.css';
 
@@ -13,7 +15,7 @@ const AlbumDetailsContainer = ({ id }) => {
   const getAlbum = useCallback(async () => dispatch(fetchAlbum(id)), []);
   useEffect(() => { getAlbum(); }, []);
 
-  if (!album) return <p>loading</p>;
+  if (!album) return <Loading />;
 
   const description = album[`strDescription${language}`];
   const {
@@ -23,7 +25,7 @@ const AlbumDetailsContainer = ({ id }) => {
   return (
     <div className="AlbumDetailsContainer">
       <h3>
-        <Favorite item={idAlbum} />
+        <Favorite item={idAlbum} type={ALBUMS} />
         { strAlbum }
         <span>{`(${intYearReleased})`}</span>
       </h3>

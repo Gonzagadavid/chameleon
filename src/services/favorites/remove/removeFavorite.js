@@ -1,10 +1,9 @@
-import { ARTIST_DETAILS } from '../../../constants/routes';
-import removeFavoriteAlbum from './removeFavoriteAlbum';
+import { ARTIST } from '../../../constants/types';
+import removeFavoriteItem from './removeFavoriteItem';
 import removeFavoriteArtist from './removeFavoriteArtist';
 
-const removeFavorite = (pathName, item) => {
-  if (pathName === ARTIST_DETAILS) return removeFavoriteArtist();
-  if (/discography/g.test(pathName)) return removeFavoriteAlbum(item);
-  return false;
+const removeFavorite = (type, item) => {
+  if (type === ARTIST) return removeFavoriteArtist();
+  return removeFavoriteItem(type, item);
 };
 export default removeFavorite;

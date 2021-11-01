@@ -8,7 +8,7 @@ const addFavoriteArtist = () => {
   const { artistCurrent } = store.getState();
   const favorites = getLocal(FAVORITE_KEY) || {};
   if (checkFavoritesExists()) return;
-  favorites[artistCurrent] = { track: [], albums: [] };
+  favorites[artistCurrent.toLowerCase()] = { tracks: [], albums: [] };
   setFavorites(favorites);
 };
 

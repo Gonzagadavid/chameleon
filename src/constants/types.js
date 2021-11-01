@@ -1,5 +1,5 @@
 export const ARTIST = 'artist';
 
-export const ALBUM = 'albums';
+export const ALBUMS = 'albums';
 
-export const TRACK = 'tracks';
+export const TRACKS = 'tracks';
