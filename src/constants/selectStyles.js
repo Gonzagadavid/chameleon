@@ -61,7 +61,7 @@ export const selectLanguages = {
       transition,
       color: 'white ',
       background: 'transparent',
-      width: '150px',
+      width: '20px',
       textAlign: 'center',
     };
   },
@@ -95,7 +95,17 @@ export const selectFavorites = {
     },
   }),
 
+  dropdownIndicator: (base) => ({
+    ...base,
+    color: 'white',
+  }),
+
   indicatorsContainer: (base) => ({
+    ...base,
+    cursor: 'pointer',
+  }),
+
+  indicatorSeparator: (base) => ({
     ...base,
     display: 'none',
   }),

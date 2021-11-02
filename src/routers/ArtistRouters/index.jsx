@@ -8,9 +8,10 @@ import Discography from '../../pages/Discography';
 import Track from '../../pages/Track';
 import VideoList from '../../pages/VideosList';
 import {
-  ARTIST_DETAILS, BIOGRAPHY, DISCOGRAPHY, ALBUM_DETAILS, TRACK, VIDEOS,
+  ARTIST_DETAILS, BIOGRAPHY, DISCOGRAPHY, ALBUM_DETAILS, TRACK, VIDEOS, FAVORITES,
 } from '../../constants/routes';
 import './style.css';
+import Favorites from '../../pages/Favorites';
 
 const ArtistRouters = () => (
   <div className="ArtistRouters">
@@ -23,6 +24,7 @@ const ArtistRouters = () => (
         <Route path={ALBUM_DETAILS} component={AlbumDetails} />
         <Route path={TRACK} component={Track} />
         <Route path={VIDEOS} component={VideoList} />
+        <Route path={FAVORITES} component={Favorites} />
       </Switch>
     </div>
   </div>

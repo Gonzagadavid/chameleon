@@ -9,3 +9,5 @@ export const ALBUM_DETAILS = '/artist-details/discography/:id';
 export const TRACK = '/artist-details/track/:trackName';
 
 export const VIDEOS = '/artist-details/video-music';
+
+export const FAVORITES = '/artist-details/favorites';
