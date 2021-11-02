@@ -1,4 +1,4 @@
-const selectStyles = {
+export const selectLanguages = {
   menu: (base) => ({
     ...base,
     width: '150px',
@@ -67,4 +67,70 @@ const selectStyles = {
   },
 };
 
-export default selectStyles;
+export const selectFavorites = {
+  menu: (base) => ({
+    ...base,
+    width: '300px',
+    color: 'white',
+    background: 'rgba(0, 0, 0, 0.6)',
+    padding: 20,
+    position: 'absolute',
+    margin: '0',
+  }),
+
+  menuList: (base) => ({
+    ...base,
+    maxHeight: '180px',
+    '::-webkit-scrollbar': {
+      width: '12px',
+    },
+    '::-webkit-scrollbar-track': {
+      background: 'black',
+    },
+    '::-webkit-scrollbar-thumb': {
+      background: 'white',
+    },
+    '::-webkit-scrollbar-thumb:hover': {
+      background: '#555',
+    },
+  }),
+
+  indicatorsContainer: (base) => ({
+    ...base,
+    display: 'none',
+  }),
+
+  control: (_, { selectProps: { width } }) => ({
+    width,
+    background: 'rgba(0, 0, 0, 0.6)',
+    display: 'flex',
+    alignItems: 'center',
+    borderRadius: '8px',
+    border: 'solid 1px white',
+    height: '40px',
+  }),
+
+  option: (base) => ({
+    ...base,
+    ':hover': {
+      background: 'linear-gradient(to right,transparent, white, transparent)',
+      color: 'black',
+    },
+    cursor: 'pointer',
+    WebkitUserSelect: { backgroundColor: 'black' },
+    background: 'rgba(0, 0, 0, 0.6)',
+    fontSize: '20px',
+  }),
+
+  singleValue: (base, state) => {
+    const opacity = state.isDisabled ? 0.5 : 1;
+    const transition = 'opacity 300ms';
+
+    return {
+      ...base,
+      opacity,
+      transition,
+      display: 'none',
+    };
+  },
+};

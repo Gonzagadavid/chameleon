@@ -3,7 +3,7 @@ import {
 } from 'prop-types';
 import React from 'react';
 import Select from 'react-select';
-import selectStyles from '../../constants/selectStyles';
+import { selectLanguages } from '../../constants/selectStyles';
 import arrayKeys from '../../functions/arrayKeys';
 import './style.css';
 
@@ -14,7 +14,7 @@ const SelectLanguage = ({ setLanguage, objectItems, keyOption }) => {
     <div className="SelectLanguage">
       <Select
         defaultValue={options[0]}
-        styles={selectStyles}
+        styles={selectLanguages}
         width="180px"
         options={options}
         onChange={({ value }) => setLanguage(value)}

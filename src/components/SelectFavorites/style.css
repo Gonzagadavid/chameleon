@@ -1,0 +1,12 @@
+.SelectFavorites {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.SelectFavorites span { 
+  font-family: sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+}
