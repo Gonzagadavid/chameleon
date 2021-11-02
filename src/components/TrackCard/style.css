@@ -8,7 +8,14 @@
   margin: 30px 0;
   height: 100px;
   padding: 20px;
+  border-radius: 10px;
   box-shadow: 0 0 10px white;
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
+}
+
+.TrackCard:hover {
+  box-shadow: 0px 0px 25px white;
 }
 
 .TrackCard a {
