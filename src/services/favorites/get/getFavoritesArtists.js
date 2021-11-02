@@ -1,8 +1,7 @@
-import { FAVORITE_KEY } from '../../../constants/storage';
-import getLocal from '../../storage/getLocal';
+import getFavorites from './getFavorites';
 
 const getFavoritesArtists = () => {
-  const favorites = getLocal(FAVORITE_KEY) || {};
+  const favorites = getFavorites();
   const favoriteList = Object.keys(favorites);
   return favoriteList;
 };

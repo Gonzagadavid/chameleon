@@ -10,7 +10,6 @@ import './style.css';
 const SelectLanguage = ({ setLanguage, objectItems, keyOption }) => {
   const options = arrayKeys(objectItems, keyOption)
     .map((tag) => ({ value: tag, label: tag, code: tag === 'PT' ? 'BR' : tag === 'EN' ? 'US' : tag }));
-
   return (
     <div className="SelectLanguage">
       <Select

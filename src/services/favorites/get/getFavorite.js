@@ -1,10 +1,9 @@
-import { FAVORITE_KEY } from '../../../constants/storage';
 import store from '../../../redux/store';
-import getLocal from '../../storage/getLocal';
+import getFavorites from './getFavorites';
 
 const getFavorite = () => {
   const { artistCurrent } = store.getState();
-  const favorites = getLocal(FAVORITE_KEY) || {};
+  const favorites = getFavorites();
   const favorite = favorites[artistCurrent];
   return favorite;
 };
