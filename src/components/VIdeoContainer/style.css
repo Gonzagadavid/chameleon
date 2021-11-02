@@ -1,0 +1,10 @@
+.Video {
+  width: 80%;
+  height: 400px;
+  
+}
+
+.Video iframe {
+  width: 100%;
+  height: 100%;
+}

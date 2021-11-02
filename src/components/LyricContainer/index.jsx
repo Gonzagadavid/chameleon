@@ -15,7 +15,7 @@ const LyricContainer = ({ trackName }) => {
   if (!lyric) return <p>Loading...</p>;
 
   return (
-    <p className="lyric">{lyric}</p>
+    <p className="lyric">{lyric.replace(/\[/g, '(').replace(/\]/g, ')')}</p>
   );
 };
 

@@ -10,7 +10,7 @@ const VideoContainer = ({ trackName }) => {
   const embedVideo = music.strMusicVid.replace(/watch\?v=/g, 'embed/');
 
   return (
-    <div>
+    <div className="Video">
       <iframe src={embedVideo} title={`video of music ${trackName}`} />
     </div>
   );
