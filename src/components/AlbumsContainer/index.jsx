@@ -1,5 +1,6 @@
 import { arrayOf, objectOf } from 'prop-types';
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import useFilterIncludes from '../../hooks/useFilterIncudles';
 import AlbumCard from '../AlbumCard';
 import Empty from '../Empty';
@@ -13,7 +14,7 @@ const AlbumsContainer = ({ albums }) => {
       <SearchBar setFiltered={setFilteredALbums} objectKey="strAlbum" />
       <div className="albumList">
         { filteredAlbums.length
-          ? filteredAlbums.map((album) => <AlbumCard key={album.idAlbum} album={album} />)
+          ? filteredAlbums.map((album) => <AlbumCard key={uuidv4()} album={album} />)
           : <Empty />}
       </div>
     </div>

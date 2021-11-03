@@ -1,3 +1,8 @@
-.Favorites h3 {
+.Favorites {
+  display: flex;
+  flex-direction: column;
+}
+
+.Favorites .title-container {
   font-size: 40px;
 }
