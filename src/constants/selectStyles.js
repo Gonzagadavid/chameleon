@@ -61,7 +61,7 @@ export const selectLanguages = {
       transition,
       color: 'white ',
       background: 'transparent',
-      width: '20px',
+      width: '100%',
       textAlign: 'center',
     };
   },

@@ -12,7 +12,7 @@ const AlbumCard = ({ album }) => {
   } = album;
   return (
     <div className="AlbumCard">
-      <Favorite item={idAlbum} type={ALBUMS} />
+      <Favorite item={strAlbum} type={ALBUMS} />
       <Link to={`/artist-details/discography/${idAlbum}`}>
         <div className="imgAlbum">
           <img src={strAlbumThumb || NotFoundImage} alt="album cover" />
