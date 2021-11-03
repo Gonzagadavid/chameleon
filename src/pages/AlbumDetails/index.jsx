@@ -4,26 +4,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import fetchTrackByAlbum from '../../redux/fetchs/fetchTracksByAlbum';
 import AlbumDetailsContainer from '../../components/AlbumDetailsContainer';
 import TracksContainer from '../../components/TracksContainer';
+import fetchAlbum from '../../redux/fetchs/fetchAlbum';
 import './style.css';
 import Loading from '../../components/Loading';
-import { actionTrackByAlbum } from '../../redux/actions';
+import Delayed from '../../components/Delayed';
 
 const AlbumDetails = ({ match: { params: { id } } }) => {
   const trackList = useSelector((state) => state.trackList);
+  const album = useSelector((state) => state.album);
+  const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
-  const getTracks = useCallback(async () => dispatch(fetchTrackByAlbum(id)), []);
+  const getTracks = useCallback(async () => {
+    dispatch(fetchAlbum(id));
+    dispatch(fetchTrackByAlbum(id));
+  }, []);
 
   useEffect(() => {
     getTracks();
-    return () => dispatch(actionTrackByAlbum([]));
   }, []);
 
+  if (loading) return <Loading />;
   return (
     <div className="AlbumDetails">
-      <h2>Album Details</h2>
-      <AlbumDetailsContainer id={id} />
-      <h3>Tracks</h3>
-      {!trackList.length ? <Loading /> : <TracksContainer trackList={trackList} />}
+      <Delayed>
+        <h2>Album Details</h2>
+        <AlbumDetailsContainer album={album} />
+        <h3>Tracks</h3>
+        <TracksContainer trackList={trackList} />
+      </Delayed>
     </div>
   );
 };

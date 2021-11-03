@@ -1,22 +1,12 @@
-import { string } from 'prop-types';
-import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { arrayOf, objectOf } from 'prop-types';
+import React, { useState } from 'react';
 import { ALBUMS } from '../../constants/types';
-import fetchAlbum from '../../redux/fetchs/fetchAlbum';
 import Favorite from '../Favorite';
-import Loading from '../Loading';
 import SelectLanguage from '../SelectLanguage';
 import './style.css';
 
-const AlbumDetailsContainer = ({ id }) => {
-  const album = useSelector((state) => state.album);
+const AlbumDetailsContainer = ({ album }) => {
   const [language, setLanguage] = useState('EN');
-  const dispatch = useDispatch();
-  const getAlbum = useCallback(async () => dispatch(fetchAlbum(id)), []);
-  useEffect(() => { getAlbum(); }, []);
-
-  if (!album) return <Loading />;
-
   const description = album[`strDescription${language}`];
   const {
     strAlbum, strAlbumThumb, intYearReleased, idAlbum,
@@ -41,5 +31,5 @@ const AlbumDetailsContainer = ({ id }) => {
 export default AlbumDetailsContainer;
 
 AlbumDetailsContainer.propTypes = {
-  id: string.isRequired,
+  album: arrayOf(objectOf).isRequired,
 };

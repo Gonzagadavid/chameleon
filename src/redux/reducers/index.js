@@ -30,7 +30,6 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         error: action.state,
         message: action.state,
-        loading: state.loading - 1,
       };
 
     case ARTIST_DETAILS:
