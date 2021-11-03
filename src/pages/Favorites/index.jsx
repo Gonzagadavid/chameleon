@@ -12,7 +12,7 @@ import Empty from '../../components/Empty';
 const Favorites = () => {
   const [albums] = useAlbumsAndVideos();
   const favoriteAlbums = getFavoriteAlbums();
-  const favoriteTracks = getFavoriteTracks().map((track) => ({ strTrack: track }));
+  const favoriteTracks = getFavoriteTracks();
   const loading = useSelector((state) => state.loading);
 
   if (loading) return <Loading />;
