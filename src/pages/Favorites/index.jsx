@@ -7,6 +7,7 @@ import TracksContainer from '../../components/TracksContainer';
 import getFavoriteAlbums from '../../services/favorites/get/getFavoriteAlbums';
 import getFavoriteTracks from '../../services/favorites/get/getFavoriteTracks';
 import './style.css';
+import Empty from '../../components/Empty';
 
 const Favorites = () => {
   const [albums] = useAlbumsAndVideos();
@@ -17,6 +18,8 @@ const Favorites = () => {
   if (loading) return <Loading />;
 
   const albumsFiltered = albums.filter(({ strAlbum }) => favoriteAlbums.includes(strAlbum));
+
+  if (!albumsFiltered.length && !favoriteTracks.length) return <Empty />;
 
   return (
     <div className="Favorites">
