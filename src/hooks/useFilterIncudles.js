@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useFilterIncludes = (arrayInit) => {
   const [array, setArray] = useState(arrayInit);
@@ -7,6 +7,10 @@ const useFilterIncludes = (arrayInit) => {
       .filter((object) => object[key].toLowerCase().includes(string.toLowerCase()));
     setArray(filteredArray);
   };
+
+  useEffect(() => {
+    setArray(arrayInit);
+  }, [arrayInit]);
 
   return [array, filter];
 };

@@ -16,7 +16,7 @@ export const DEFAULT_STATE = {
   musicVideos: [],
   lyric: '',
   message: '',
-  loading: false,
+  loading: 0,
 };
 
 const LOCAL_STORE_STATE = getSession(ARTIST_STATE) || false;
@@ -30,7 +30,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         error: action.state,
         message: action.state,
-        loading: false,
+        loading: state.loading - 1,
       };
 
     case ARTIST_DETAILS:
@@ -38,32 +38,32 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         artistDetails: action.state,
         logo: action.state.strArtistLogo,
-        loading: false,
+        loading: state.loading - 1,
       };
 
     case DISCOGRAPHY:
-      return { ...state, albums: action.state, loading: false };
+      return { ...state, albums: action.state, loading: state.loading - 1 };
 
     case ALBUM:
-      return { ...state, album: action.state, loading: false };
+      return { ...state, album: action.state, loading: state.loading - 1 };
 
     case TRACKSBYALBUM:
-      return { ...state, trackList: action.state, loading: false };
+      return { ...state, trackList: action.state, loading: state.loading - 1 };
 
     case ARTIST_CURRENT:
       return { ...state, artistCurrent: action.state };
 
     case MUSIC_VIDEOS:
-      return { ...state, musicVideos: action.state, loading: false };
+      return { ...state, musicVideos: action.state, loading: state.loading - 1 };
 
     case LYRIC:
-      return { ...state, lyric: action.state, loading: false };
+      return { ...state, lyric: action.state, loading: state.loading - 1 };
 
     case MESSAGE:
       return { ...state, message: action.state };
 
     case LOADING:
-      return { ...state, loading: true };
+      return { ...state, loading: state.loading + 1 };
 
     case RESET_STATE:
       return DEFAULT_STATE;

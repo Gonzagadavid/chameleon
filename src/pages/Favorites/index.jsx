@@ -1,33 +1,20 @@
-import React, { useCallback, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import useAlbumsAndVideos from '../../hooks/useAlbumsAndVideos';
 import AlbumsContainer from '../../components/AlbumsContainer';
 import Loading from '../../components/Loading';
 import TracksContainer from '../../components/TracksContainer';
-import fetchDiscography from '../../redux/fetchs/fetchDiscography';
-import fetchVideos from '../../redux/fetchs/fetchVideos';
 import getFavoriteAlbums from '../../services/favorites/get/getFavoriteAlbums';
 import getFavoriteTracks from '../../services/favorites/get/getFavoriteTracks';
 import './style.css';
 
 const Favorites = () => {
-  const artistID = useSelector((state) => state.artistDetails.idArtist);
-  const albums = useSelector((state) => state.albums);
-  const videos = useSelector((state) => state.musicVideos);
-  const dispatch = useDispatch();
+  const [albums] = useAlbumsAndVideos();
   const favoriteAlbums = getFavoriteAlbums();
   const favoriteTracks = getFavoriteTracks().map((track) => ({ strTrack: track }));
+  const loading = useSelector((state) => state.loading);
 
-  const getDiscography = useCallback(async () => {
-    if (albums.length) return;
-    await dispatch(fetchDiscography(artistID));
-
-    if (videos.length) return;
-    await dispatch(fetchVideos(artistID));
-  }, []);
-
-  useEffect(() => { getDiscography(); }, []);
-
-  if (!albums.length || !videos.length) return <Loading />;
+  if (loading) return <Loading />;
 
   const albumsFiltered = albums.filter(({ strAlbum }) => favoriteAlbums.includes(strAlbum));
 

@@ -9,10 +9,10 @@ import TrackCard from '../TrackCard';
 import './style.css';
 
 const TracksContainer = ({ trackList }) => {
+  console.log('pior que');
   const [filteredTracks, setFilteredTracks] = useFilterIncludes(trackList);
   const musicVideos = useSelector((state) => state.musicVideos);
   const videosTrack = musicVideos.map(({ strTrack }) => strTrack);
-
   return (
     <div className="TracksContainer">
       <SearchBar setFiltered={setFilteredTracks} objectKey="strTrack" />
