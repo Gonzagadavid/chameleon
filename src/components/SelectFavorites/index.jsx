@@ -1,7 +1,7 @@
 import { func } from 'prop-types';
 import React from 'react';
 import Select from 'react-select';
-import { selectFavorites } from '../../constants/selectStyles';
+import { placeholderStyle, selectFavorites } from '../../constants/selectStyles';
 import getFavorites from '../../services/favorites/get/getFavorites';
 import getFavoritesArtists from '../../services/favorites/get/getFavoritesArtists';
 import './style.css';
@@ -14,19 +14,7 @@ const SelectFavorites = ({ setFavorite }) => {
   return (
     <div className="SelectFavorites">
       <Select
-        placeholder={(
-          <div style={{
-            color: 'white',
-            fontSize: '30px',
-            display: 'flex',
-            cursor: 'pointer',
-            width: '60%',
-            justifyContent: 'center',
-          }}
-          >
-            Favorites
-          </div>
-)}
+        placeholder={(<div style={placeholderStyle}> Favorites</div>)}
         styles={selectFavorites}
         width="300px"
         options={options}

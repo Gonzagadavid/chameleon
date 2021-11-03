@@ -144,3 +144,12 @@ export const selectFavorites = {
     };
   },
 };
+
+export const placeholderStyle = {
+  color: 'white',
+  fontSize: '30px',
+  display: 'flex',
+  cursor: 'pointer',
+  width: '60%',
+  justifyContent: 'center',
+};
