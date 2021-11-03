@@ -11,7 +11,6 @@ import Delayed from '../../components/Delayed';
 
 const AlbumDetails = ({ match: { params: { id } } }) => {
   const trackList = useSelector((state) => state.trackList);
-  const album = useSelector((state) => state.album);
   const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
   const getTracks = useCallback(async () => {
@@ -28,7 +27,7 @@ const AlbumDetails = ({ match: { params: { id } } }) => {
     <div className="AlbumDetails">
       <Delayed>
         <h2>Album Details</h2>
-        <AlbumDetailsContainer album={album} />
+        <AlbumDetailsContainer />
         <h3>Tracks</h3>
         <TracksContainer trackList={trackList} />
       </Delayed>

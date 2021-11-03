@@ -1,11 +1,12 @@
-import { arrayOf, objectOf } from 'prop-types';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { ALBUMS } from '../../constants/types';
 import Favorite from '../Favorite';
 import SelectLanguage from '../SelectLanguage';
 import './style.css';
 
-const AlbumDetailsContainer = ({ album }) => {
+const AlbumDetailsContainer = () => {
+  const album = useSelector((state) => state.album);
   const [language, setLanguage] = useState('EN');
   const description = album[`strDescription${language}`];
   const {
@@ -29,7 +30,3 @@ const AlbumDetailsContainer = ({ album }) => {
 };
 
 export default AlbumDetailsContainer;
-
-AlbumDetailsContainer.propTypes = {
-  album: arrayOf(objectOf).isRequired,
-};
