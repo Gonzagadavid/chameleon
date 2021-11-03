@@ -7,6 +7,7 @@ import { ARTIST_STATE } from '../../constants/storage';
 import { actionArtistCurrent, actionMessage, actionResetState } from '../../redux/actions';
 import fetchArtistDetails from '../../redux/fetchs/fetchArtistDetails';
 import getFavoritesArtists from '../../services/favorites/get/getFavoritesArtists';
+import chameleon from '../../images/chameleon.gif';
 import './style.css';
 
 const Home = () => {
@@ -52,11 +53,14 @@ const Home = () => {
     <div className="Home">
       <div className="image" />
       <div className="opacity">
-        <h1>
-          <span>N</span>
-          Music Universe
-          <span>N</span>
-        </h1>
+        <div className="title">
+          <h1>
+            {/* <span>N</span> */}
+            Chameleon
+            {/* <span>N</span> */}
+            <img src={chameleon} alt="chameleon" className="gif" />
+          </h1>
+        </div>
         <input
           placeholder="Search..."
           value={artist}
