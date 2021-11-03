@@ -22,7 +22,6 @@ const useAlbumsAndVideos = () => {
   }, []);
 
   useEffect(() => {
-    console.log({ loading });
     setAlbums(artistAlbums);
     setVideos(musicVideos);
   }, [loading]);
@@ -30,7 +29,6 @@ const useAlbumsAndVideos = () => {
   useEffect(() => { getVideos(); }, []);
   useEffect(() => { getDiscography(); }, []);
 
-  console.log({ albums, musicVideos });
   return [albums, videos];
 };
 
