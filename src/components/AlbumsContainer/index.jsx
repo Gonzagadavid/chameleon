@@ -13,9 +13,9 @@ const AlbumsContainer = ({ albums }) => {
     <div className="AlbumsContainer">
       <SearchBar setFiltered={setFilteredALbums} objectKey="strAlbum" />
       <div className="albumList">
-        { filteredAlbums.length
-          ? filteredAlbums.map((album) => <AlbumCard key={uuidv4()} album={album} />)
-          : <Empty />}
+        <Empty condition={!!filteredAlbums.length}>
+          {filteredAlbums.map((album) => <AlbumCard key={uuidv4()} album={album} />)}
+        </Empty>
       </div>
     </div>
   );
