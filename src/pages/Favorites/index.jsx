@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import AlbumsContainer from '../../components/AlbumsContainer';
 import Loading from '../../components/Loading';
 import TracksContainer from '../../components/TracksContainer';
@@ -9,13 +9,13 @@ import useFavorites from '../../hooks/useFavorites';
 import CheckComponent from '../../components/CheckComponent';
 
 const Favorites = () => {
-  const loading = useSelector((state) => state.loading);
+  // const loading = useSelector((state) => state.loading);
   const [favoriteAlbums, favoriteTracks] = useFavorites();
 
-  if (loading) return <Loading />;
+  // if (loading) return <Loading />;
 
   return (
-    <div className="Favorites">
+    <Loading className="Favorites">
       <h2>Favorites</h2>
       <CheckComponent condition={favoriteAlbums.length}>
         <h3 className="title-container">Albums</h3>
@@ -30,7 +30,7 @@ const Favorites = () => {
       <CheckComponent condition={!favoriteAlbums.length && !favoriteTracks.length}>
         <Empty />
       </CheckComponent>
-    </div>
+    </Loading>
   );
 };
 

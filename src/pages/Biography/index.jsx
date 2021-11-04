@@ -4,12 +4,13 @@ import BiographyContainer from '../../components/BiographyContainer';
 import SelectLanguage from '../../components/SelectLanguage';
 import ImagesContainer from '../../components/ImagesContainer';
 import './style.css';
+import Loading from '../../components/Loading';
 
 const Biography = () => {
   const [language, setLanguage] = useState('EN');
   const artistDetails = useSelector((state) => state.artistDetails);
   return (
-    <div className="Biography">
+    <Loading className="Biography">
       <div className="back">
         <ImagesContainer />
       </div>
@@ -18,7 +19,7 @@ const Biography = () => {
         <SelectLanguage setLanguage={setLanguage} objectItems={artistDetails} keyOption="strBiography" />
         <BiographyContainer language={language} />
       </div>
-    </div>
+    </Loading>
   );
 };
 
