@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -18,6 +19,7 @@
         "react"
     ],
     "rules": {
-        "no-nested-ternary": "off"
+        "no-nested-ternary": "off",
+        "import/no-extraneous-dependencies": "off",
     }
 }
