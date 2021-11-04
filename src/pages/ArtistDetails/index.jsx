@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
 import InfoCard from '../../components/InfoCard';
 import InfoImage from '../../components/InfoImage';
 import Loading from '../../components/Loading';

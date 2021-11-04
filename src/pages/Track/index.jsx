@@ -8,17 +8,13 @@ import fetchLyric from '../../redux/fetchs/fetchLyric';
 import Favorite from '../../components/Favorite';
 import './style.css';
 import Loading from '../../components/Loading';
-// import Delayed from '../../components/Delayed';
 
 const Track = ({ match: { params: { trackName } } }) => {
   const artist = useSelector((state) => state.artistCurrent);
-  // const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
   const getLyric = useCallback(async () => { dispatch(fetchLyric(artist, trackName)); }, []);
 
   useEffect(() => { getLyric(); }, []);
-
-  // if (loading) return <Loading />;
 
   return (
     <Loading className="Track">
@@ -26,10 +22,8 @@ const Track = ({ match: { params: { trackName } } }) => {
         <Favorite type={TRACKS} item={trackName} />
         {trackName}
       </h2>
-      {/* <Delayed> */}
       <VideoContainer trackName={trackName} />
       <LyricContainer />
-      {/* </Delayed> */}
     </Loading>
   );
 };

@@ -9,10 +9,7 @@ import useFavorites from '../../hooks/useFavorites';
 import CheckComponent from '../../components/CheckComponent';
 
 const Favorites = () => {
-  // const loading = useSelector((state) => state.loading);
   const [favoriteAlbums, favoriteTracks] = useFavorites();
-
-  // if (loading) return <Loading />;
 
   return (
     <Loading className="Favorites">

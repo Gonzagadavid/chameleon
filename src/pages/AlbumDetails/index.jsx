@@ -7,11 +7,9 @@ import TracksContainer from '../../components/TracksContainer';
 import fetchAlbum from '../../redux/fetchs/fetchAlbum';
 import './style.css';
 import Loading from '../../components/Loading';
-// import Delayed from '../../components/Delayed';
 
 const AlbumDetails = ({ match: { params: { id } } }) => {
   const trackList = useSelector((state) => state.trackList);
-  // const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
   const getTracks = useCallback(async () => {
     dispatch(fetchAlbum(id));
@@ -22,15 +20,12 @@ const AlbumDetails = ({ match: { params: { id } } }) => {
     getTracks();
   }, []);
 
-  // if (loading) return <Loading />;
   return (
     <Loading className="AlbumDetails">
-      {/* <Delayed> */}
       <h2>Album Details</h2>
       <AlbumDetailsContainer />
       <h3>Tracks</h3>
       <TracksContainer trackList={trackList} />
-      {/* </Delayed> */}
     </Loading>
   );
 };
