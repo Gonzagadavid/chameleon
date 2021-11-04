@@ -1,29 +1,23 @@
 import React from 'react';
-import { CgWebsite } from 'react-icons/cg';
-import { AiOutlineTwitter } from 'react-icons/ai';
-import { FaFacebook } from 'react-icons/fa';
+import { v4 as uiidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
 import './style.css';
+import CheckComponent from '../CheckComponent';
+import contacts from '../../constants/contacts';
+import ContacIcon from '../ContactIcon';
 
 const ContactCard = () => {
-  const { strWebsite, strFacebook, strTwitter } = useSelector((state) => state.artistDetails);
+  const artist = useSelector((state) => state.artistDetails);
+
   return (
     <div className="ContactCard">
-      {strWebsite && (
-      <a href={`https://${strWebsite}`} target="_blank" rel="noreferrer">
-        <CgWebsite />
-      </a>
-      )}
-      {strFacebook && (
-      <a href={`https://${strFacebook}`} target="_blank" rel="noreferrer">
-        <FaFacebook />
-      </a>
-      )}
-      {strTwitter && (
-      <a href={`https://${strTwitter}`} target="_blank" rel="noreferrer">
-        <AiOutlineTwitter />
-      </a>
-      )}
+      {contacts.map(({ contact, icon }) => (
+        <CheckComponent key={uiidv4()} condition={!!artist[contact]}>
+          <a href={`https://${artist[contact]}`} target="_blank" rel="noreferrer">
+            <ContacIcon contact={icon} />
+          </a>
+        </CheckComponent>
+      ))}
     </div>
   );
 };
