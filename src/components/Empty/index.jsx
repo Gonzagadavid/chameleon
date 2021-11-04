@@ -9,8 +9,8 @@ const Empty = ({ children, condition }) => {
 
   return (
     <Delayed>
-      <div>
-        <h3>Sorry, Not Found!</h3>
+      <div className="Empty">
+        <h3>Empty!</h3>
         <img src={hayBall} alt="hay ball" />
       </div>
     </Delayed>
