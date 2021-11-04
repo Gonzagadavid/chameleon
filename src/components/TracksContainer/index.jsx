@@ -12,16 +12,17 @@ const TracksContainer = ({ trackList }) => {
   const [filteredTracks, setFilteredTracks] = useFilterIncludes(trackList);
   const musicVideos = useSelector((state) => state.musicVideos);
   const videosTrack = musicVideos.map(({ strTrack }) => strTrack);
+
   return (
     <div className="TracksContainer">
       <SearchBar setFiltered={setFilteredTracks} objectKey="strTrack" />
-      <div className="trackList">
-        {filteredTracks.length
-          ? filteredTracks.map(({ strTrack }) => (
+      <Empty condition={!!filteredTracks.length}>
+        <div className="trackList">
+          {filteredTracks.map(({ strTrack }) => (
             <TrackCard key={uuidv4()} trackName={strTrack} videosTrack={videosTrack} />
-          ))
-          : <Empty />}
-      </div>
+          ))}
+        </div>
+      </Empty>
     </div>
   );
 };

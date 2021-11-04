@@ -10,7 +10,7 @@ const MessageContainer = () => {
 
   const handleClick = () => { dispatch(actionMessage('')); };
 
-  if (!message) return '';
+  if (!message) return null;
 
   return (
     <div className="MessageContainer">
