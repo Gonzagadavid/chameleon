@@ -9,6 +9,7 @@ import Loading from '../../components/Loading';
 const Biography = () => {
   const [language, setLanguage] = useState('EN');
   const artistDetails = useSelector((state) => state.artistDetails);
+
   return (
     <Loading className="Biography">
       <div className="back">
