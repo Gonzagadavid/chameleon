@@ -1,5 +1,5 @@
 import {
-  cleanup, screen, waitFor,
+  cleanup, fireEvent, screen, waitFor,
 } from '@testing-library/react';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
@@ -13,6 +13,7 @@ import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
 import FAVORITE from '../mocks/data/FAVORITES';
 import fetchMock from '../mocks/fetchMock';
 import ARTIST_DETAILS from '../mocks/data/ARTIST_DETAILS';
+import App from '../../App';
 
 describe('verifica a renderização o funcionamento do compoennte Home', () => {
   beforeEach(() => {
@@ -80,5 +81,22 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     await waitFor(() => expect(global.fetch).toBeCalled());
     await waitFor(() => expect(history.location.pathname).toBe('/artist-details'));
     expect(store.getState().artistDetails).toEqual(ARTIST_DETAILS.artists[0]);
+  });
+
+  it('Ao clicar no botão de busca com o input vazio a menssagem correta é rederizada', async () => {
+    window.scrollTo = jest.fn((value) => value);
+    const { store } = renderWithReduxAndRouter(<App />);
+
+    const message = 'Write the name of a band or artist in the music bar';
+    const btn = screen.getByRole('button');
+
+    fireEvent.click(btn);
+
+    await waitFor(() => expect(screen.getByText(message)).toBeInTheDocument());
+    expect(store.getState().message).toBe(message);
+
+    userEvent.click(screen.getByText(/ok/i));
+    expect(screen.queryByText(message)).toBeNull();
+    expect(store.getState().message).toBe('');
   });
 });
