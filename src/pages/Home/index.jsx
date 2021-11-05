@@ -10,6 +10,7 @@ import getFavoritesArtists from '../../services/favorites/get/getFavoritesArtist
 import chameleon from '../../images/chameleon.gif';
 import './style.css';
 import CheckComponent from '../../components/CheckComponent';
+import { SEARCH_EMPTY } from '../../constants/messages';
 
 const Home = () => {
   const [redirect, setRedirect] = useState(false);
@@ -27,7 +28,7 @@ const Home = () => {
   };
 
   const handleClick = () => {
-    if (!artist) return dispatch(actionMessage('Write the name of a band or artist in the music bar'));
+    if (!artist) return dispatch(actionMessage(SEARCH_EMPTY));
     return getArtist(artist);
   };
 

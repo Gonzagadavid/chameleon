@@ -1,3 +1,4 @@
+import { ARTIST_NOT_FOUND } from '../../constants/messages';
 import fetchApi from '../../services/fetch/fetchApi';
 import {
   actionArtistDetails, actionError, actionLoading, actionMessage,
@@ -8,7 +9,7 @@ const fetchArtistDetails = (name) => async (dispatch) => {
   const { artists, error } = await fetchApi(`https://theaudiodb.com/api/v1/json/1/search.php?s=${name}`);
 
   if (error) return dispatch(actionError);
-  if (!artists) return dispatch(actionMessage('The name entered was not found in our database, check the name or choose another one'));
+  if (!artists) return dispatch(actionMessage(ARTIST_NOT_FOUND));
 
   return dispatch(actionArtistDetails(artists[0]));
 };

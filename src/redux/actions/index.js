@@ -1,3 +1,5 @@
+import { ERROR_REQ } from '../../constants/messages';
+
 export const ERROR = 'ERROR';
 
 export const ARTIST_DETAILS = 'ARTIST_DETAILS';
@@ -20,7 +22,7 @@ export const RESET_STATE = 'RESET_STATE';
 
 export const LOADING = 'LOADING';
 
-export const actionError = { type: ERROR, state: 'An error has occurred in the application, please try again later!' };
+export const actionError = { type: ERROR, state: ERROR_REQ };
 
 export const actionResetError = { type: ERROR, state: '' };
 

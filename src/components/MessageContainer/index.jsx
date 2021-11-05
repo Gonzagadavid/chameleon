@@ -15,8 +15,6 @@ const MessageContainer = () => {
     dispatch(actionResetError);
   };
 
-  // if (!message && !error) return null;
-
   return (
     <CheckComponent condition={message || error}>
       <div className="MessageContainer">
