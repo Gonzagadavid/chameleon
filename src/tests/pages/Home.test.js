@@ -99,4 +99,22 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     expect(screen.queryByText(message)).toBeNull();
     expect(store.getState().message).toBe('');
   });
+
+  it('verifica o funcionamento de busca por um artista que não existente ', async () => {
+    const { store } = renderWithReduxAndRouter(<App />);
+
+    const message = 'The name entered was not found in our database, check the name or choose another one';
+    const serchBar = screen.getByPlaceholderText(/search/i);
+    const btn = screen.getByRole('button');
+
+    userEvent.type(serchBar, 'inexistente');
+    userEvent.click(btn);
+
+    await waitFor(() => expect(screen.getByText(message)).toBeInTheDocument());
+    expect(store.getState().message).toBe(message);
+
+    userEvent.click(screen.getByText(/ok/i));
+    expect(screen.queryByText(message)).toBeNull();
+    expect(store.getState().message).toBe('');
+  });
 });

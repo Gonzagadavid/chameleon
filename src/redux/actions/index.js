@@ -20,7 +20,7 @@ export const RESET_STATE = 'RESET_STATE';
 
 export const LOADING = 'LOADING';
 
-export const actionError = { type: ERROR, state: 'Ocorreu um erro na aplicação, tente novamente mais tarde!' };
+export const actionError = { type: ERROR, state: 'An error has occurred in the application, please try again later!' };
 
 export const actionArtistDetails = (state) => ({ type: ARTIST_DETAILS, state });
 
