@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import LogoArtist from '../LogoArtist';
 import ContactCard from '../ContactCard';
 import './style.css';
@@ -12,7 +13,7 @@ const Nav = () => (
     <nav>
       <ul>
         {nav.map(({ route, label }) => (
-          <li><Link to={route}>{label}</Link></li>
+          <li key={uuidv4()}><Link to={route}>{label}</Link></li>
         ))}
       </ul>
     </nav>

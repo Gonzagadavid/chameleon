@@ -21,5 +21,6 @@
     "rules": {
         "no-nested-ternary": "off",
         "import/no-extraneous-dependencies": "off",
+        "react/jsx-filename-extension": "off"
     }
 }
