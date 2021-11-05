@@ -1,16 +1,20 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BiError } from 'react-icons/bi';
-import { actionMessage } from '../../redux/actions';
+import { actionMessage, actionResetError } from '../../redux/actions';
 import './style.css';
 
 const MessageContainer = () => {
   const message = useSelector((state) => state.message);
+  const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
 
-  const handleClick = () => { dispatch(actionMessage('')); };
+  const handleClick = () => {
+    dispatch(actionMessage(''));
+    dispatch(actionResetError);
+  };
 
-  if (!message) return null;
+  if (!message && !error) return null;
 
   return (
     <div className="MessageContainer">

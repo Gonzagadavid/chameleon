@@ -22,6 +22,8 @@ export const LOADING = 'LOADING';
 
 export const actionError = { type: ERROR, state: 'An error has occurred in the application, please try again later!' };
 
+export const actionResetError = { type: ERROR, state: '' };
+
 export const actionArtistDetails = (state) => ({ type: ARTIST_DETAILS, state });
 
 export const actionDiscography = (state) => ({ type: DISCOGRAPHY, state });

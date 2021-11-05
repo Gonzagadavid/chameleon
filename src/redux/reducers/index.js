@@ -6,12 +6,12 @@ import {
 } from '../actions';
 
 export const DEFAULT_STATE = {
-  error: null,
+  error: '',
   artistDetails: {},
   albums: [],
-  album: null,
+  album: {},
   trackList: [],
-  artistCurrent: null,
+  artistCurrent: {},
   logo: '',
   musicVideos: [],
   lyric: '',

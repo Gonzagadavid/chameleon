@@ -100,14 +100,14 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     expect(store.getState().message).toBe('');
   });
 
-  it('verifica o funcionamento de busca por um artista que não existente ', async () => {
+  it('Se a menssagem correta é rederizada, na busca por um artista que não existente', async () => {
     const { store } = renderWithReduxAndRouter(<App />);
 
     const message = 'The name entered was not found in our database, check the name or choose another one';
     const serchBar = screen.getByPlaceholderText(/search/i);
     const btn = screen.getByRole('button');
 
-    userEvent.type(serchBar, 'inexistente');
+    userEvent.type(serchBar, 'nonexistent');
     userEvent.click(btn);
 
     await waitFor(() => expect(screen.getByText(message)).toBeInTheDocument());
@@ -116,5 +116,23 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     userEvent.click(screen.getByText(/ok/i));
     expect(screen.queryByText(message)).toBeNull();
     expect(store.getState().message).toBe('');
+  });
+
+  it('Se a menssagem correta é rederizada, quando ocorre um erro na requisição', async () => {
+    const { store } = renderWithReduxAndRouter(<App />);
+
+    const message = 'An error has occurred in the application, please try again later!';
+    const serchBar = screen.getByPlaceholderText(/search/i);
+    const btn = screen.getByRole('button');
+
+    userEvent.type(serchBar, 'error');
+    userEvent.click(btn);
+
+    await waitFor(() => expect(screen.getByText(message)).toBeInTheDocument());
+    expect(store.getState().error).toBe(message);
+
+    userEvent.click(screen.getByText(/ok/i));
+    expect(screen.queryByText(message)).toBeNull();
+    expect(store.getState().error).toBe('');
   });
 });
