@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BiError } from 'react-icons/bi';
 import { actionMessage, actionResetError } from '../../redux/actions';
+import CheckComponent from '../CheckComponent';
 import './style.css';
 
 const MessageContainer = () => {
@@ -14,14 +15,16 @@ const MessageContainer = () => {
     dispatch(actionResetError);
   };
 
-  if (!message && !error) return null;
+  // if (!message && !error) return null;
 
   return (
-    <div className="MessageContainer">
-      <h2><BiError /></h2>
-      <p>{message}</p>
-      <button type="button" onClick={handleClick}>OK</button>
-    </div>
+    <CheckComponent condition={message || error}>
+      <div className="MessageContainer">
+        <h2><BiError /></h2>
+        <p>{message}</p>
+        <button type="button" onClick={handleClick}>OK</button>
+      </div>
+    </CheckComponent>
   );
 };
 
