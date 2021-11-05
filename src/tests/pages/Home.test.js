@@ -1,7 +1,8 @@
 import {
-  cleanup, fireEvent, screen, waitFor,
+  cleanup, screen, waitFor,
 } from '@testing-library/react';
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { ARTIST_STATE, FAVORITE_KEY } from '../../constants/storage';
 import Home from '../../pages/Home';
 import getLocal from '../../services/storage/getLocal';
@@ -11,10 +12,13 @@ import setSession from '../../services/storage/setSession';
 import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
 import FAVORITE from '../mocks/data/FAVORITES';
 import fetchMock from '../mocks/fetchMock';
-
-global.fetch = jest.fn(fetchMock);
+import ARTIST_DETAILS from '../mocks/data/ARTIST_DETAILS';
 
 describe('verifica a renderização o funcionamento do compoennte Home', () => {
+  beforeEach(() => {
+    global.fetch = jest.fn(fetchMock);
+  });
+
   afterEach(cleanup);
 
   it('verifica os textos estão corretos', () => {
@@ -56,16 +60,25 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     setLocal(FAVORITE_KEY, FAVORITE);
     expect(getLocal(FAVORITE_KEY)).toEqual(FAVORITE);
 
-    const { history } = renderWithReduxAndRouter(<Home />);
+    renderWithReduxAndRouter(<Home />);
 
     expect(screen.getByText(/favorites/i)).toBeInTheDocument();
 
     const favorites = screen.getByRole('combobox');
 
     expect(favorites).toBeInTheDocument();
+  });
 
-    fireEvent.change(favorites, { target: { value: 'black alien' } });
+  it('verifica o funcionamento de busca por um artista existente ', async () => {
+    const { history, store } = renderWithReduxAndRouter(<Home />);
 
-    waitFor(() => expect(history.location.pathname).toBe('/artist-details'));
+    const serchBar = screen.getByPlaceholderText(/search/i);
+    const btn = screen.getByRole('button');
+
+    userEvent.type(serchBar, 'metallica');
+    userEvent.click(btn);
+    await waitFor(() => expect(global.fetch).toBeCalled());
+    await waitFor(() => expect(history.location.pathname).toBe('/artist-details'));
+    expect(store.getState().artistDetails).toEqual(ARTIST_DETAILS.artists[0]);
   });
 });
