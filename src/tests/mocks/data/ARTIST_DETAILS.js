@@ -1,7 +1,4 @@
-// 20211104141603
-// https://theaudiodb.com/api/v1/json/1/search.php?s=metallica
-
-const ARTIST_DETAILS = {
+export const METALLICA = {
   artists: [
     {
       idArtist: '111279',
@@ -57,4 +54,58 @@ const ARTIST_DETAILS = {
   ],
 };
 
-export default ARTIST_DETAILS;
+export const BLACK_ALIEN = {
+  artists: [
+    {
+      idArtist: '141455',
+      strArtist: 'Black Alien',
+      strArtistStripped: null,
+      strArtistAlternate: null,
+      strLabel: null,
+      idLabel: null,
+      intFormedYear: '1972',
+      intBornYear: null,
+      intDiedYear: null,
+      strDisbanded: null,
+      strStyle: null,
+      strGenre: '',
+      strMood: null,
+      strWebsite: null,
+      strFacebook: null,
+      strTwitter: null,
+      strBiographyEN: 'Figura das mais atuantes no underground brasileiro da última década, o niteroiense Gustavo Black Alien subiu em um palco pela primeira vez em 1993 e desde então desenvolve uma trajetória de participações com artistas como Fernanda Abreu, Raimundos e Marcelinho da Lua. Integrou o Planet Hemp, grupo do qual também fazia parte Marcelo D2, e fundou o grupo Reggae B, em parceria com o baixista Bi Ribeiro, dos Paralamas do Sucesso. Lançou em 2004 seu primeiro disco solo.',
+      strBiographyDE: null,
+      strBiographyFR: null,
+      strBiographyCN: null,
+      strBiographyIT: null,
+      strBiographyJP: null,
+      strBiographyRU: null,
+      strBiographyES: null,
+      strBiographyPT: null,
+      strBiographySE: null,
+      strBiographyNL: null,
+      strBiographyHU: null,
+      strBiographyNO: null,
+      strBiographyIL: null,
+      strBiographyPL: null,
+      strGender: null,
+      intMembers: null,
+      strCountry: null,
+      strCountryCode: 'BR',
+      strArtistThumb: '',
+      strArtistLogo: '',
+      strArtistClearart: null,
+      strArtistWideThumb: null,
+      strArtistFanart: '',
+      strArtistFanart2: '',
+      strArtistFanart3: '',
+      strArtistFanart4: null,
+      strArtistBanner: '',
+      strMusicBrainzID: '46a7b248-112e-4e62-bc32-aeea5029f53b',
+      strISNIcode: null,
+      strLastFMChart: null,
+      intCharted: '4',
+      strLocked: 'unlocked',
+    },
+  ],
+};

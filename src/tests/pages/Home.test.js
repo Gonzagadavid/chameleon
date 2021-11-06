@@ -3,6 +3,7 @@ import {
 } from '@testing-library/react';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
+import selectEvent from 'react-select-event';
 import { ARTIST_STATE, FAVORITE_KEY } from '../../constants/storage';
 import Home from '../../pages/Home';
 import getLocal from '../../services/storage/getLocal';
@@ -12,7 +13,7 @@ import setSession from '../../services/storage/setSession';
 import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
 import FAVORITE from '../mocks/data/FAVORITES';
 import fetchMock from '../mocks/fetchMock';
-import ARTIST_DETAILS from '../mocks/data/ARTIST_DETAILS';
+import { BLACK_ALIEN, METALLICA } from '../mocks/data/ARTIST_DETAILS';
 import App from '../../App';
 
 describe('verifica a renderização o funcionamento do compoennte Home', () => {
@@ -61,13 +62,21 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     setLocal(FAVORITE_KEY, FAVORITE);
     expect(getLocal(FAVORITE_KEY)).toEqual(FAVORITE);
 
-    renderWithReduxAndRouter(<Home />);
+    const { history, store } = renderWithReduxAndRouter(<Home />);
 
     expect(screen.getByText(/favorites/i)).toBeInTheDocument();
 
     const favorites = screen.getByRole('combobox');
 
     expect(favorites).toBeInTheDocument();
+
+    await selectEvent.openMenu(favorites);
+
+    userEvent.click(screen.getByText('black alien'));
+
+    await waitFor(() => expect(global.fetch).toBeCalled());
+    await waitFor(() => expect(history.location.pathname).toBe('/artist-details'));
+    expect(store.getState().artistDetails).toEqual(BLACK_ALIEN.artists[0]);
   });
 
   it('verifica o funcionamento de busca por um artista existente ', async () => {
@@ -80,7 +89,7 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     userEvent.click(btn);
     await waitFor(() => expect(global.fetch).toBeCalled());
     await waitFor(() => expect(history.location.pathname).toBe('/artist-details'));
-    expect(store.getState().artistDetails).toEqual(ARTIST_DETAILS.artists[0]);
+    expect(store.getState().artistDetails).toEqual(METALLICA.artists[0]);
   });
 
   it('Ao clicar no botão de busca com o input vazio a menssagem correta é rederizada', async () => {
