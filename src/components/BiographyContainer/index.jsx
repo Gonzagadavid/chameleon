@@ -6,7 +6,7 @@ const BiographyContainer = ({ language }) => {
   const artistDetails = useSelector((state) => state.artistDetails);
   return (
     <div>
-      <p>
+      <p data-testid="biography">
         {artistDetails[`strBiography${language}`]}
       </p>
     </div>

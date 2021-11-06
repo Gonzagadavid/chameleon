@@ -17,7 +17,7 @@ describe('Verifica a renderização e o funcionamento do componente ArtistDetail
   });
 
   it('verifica se as informações são renderizadas corretamente', async () => {
-    await renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: artist });
+    renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: artist });
     await waitFor(() => expect(screen.getAllByTestId('info')));
     const infos = screen.getAllByTestId('info');
 
@@ -29,7 +29,7 @@ describe('Verifica a renderização e o funcionamento do componente ArtistDetail
   });
 
   it('verifica se imagem da banda é renderizada corretamente', async () => {
-    await renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: artist });
+    renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: artist });
     await waitFor(() => expect(screen.getAllByTestId('info')));
 
     const { strArtistWideThumb: thumb } = artist;
@@ -42,7 +42,7 @@ describe('Verifica a renderização e o funcionamento do componente ArtistDetail
 
   it('verifica se a segunda opção de imagem da banda é renderizada corretamente'
   + ', quando não existe a primeira', async () => {
-    await renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: { ...artist, strArtistWideThumb: '' } });
+    renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: { ...artist, strArtistWideThumb: '' } });
     await waitFor(() => expect(screen.getAllByTestId('info')));
 
     const { strArtistFanart: thumb } = artist;
@@ -55,7 +55,7 @@ describe('Verifica a renderização e o funcionamento do componente ArtistDetail
 
   it('verifica se a imagem not found é renderizada corretamente'
   + ', quando não existe a primeira e a segunda', async () => {
-    await renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: {} });
+    renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: {} });
     await waitFor(() => expect(screen.getAllByTestId('info')));
 
     const image = screen.getByAltText('artists');
