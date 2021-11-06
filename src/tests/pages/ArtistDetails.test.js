@@ -10,6 +10,7 @@ import { METALLICA } from '../mocks/data/ARTIST_DETAILS';
 const { artists: [artist] } = METALLICA;
 describe('Verifica a renderização e o funcionamento do componente ArtistDetails', () => {
   afterEach(cleanup);
+
   it('verifica se o loading estiver ativo o spindle é renderizado', () => {
     renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, loading: 1 });
     expect(screen.getByAltText('loading')).toBeInTheDocument();
