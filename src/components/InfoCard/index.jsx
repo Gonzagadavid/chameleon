@@ -15,7 +15,7 @@ const InfoCard = () => {
           {key}
           :
           {' '}
-          <span>{artistDetails[value]}</span>
+          <span data-testid="info">{artistDetails[value]}</span>
         </p>
       ))}
     </div>

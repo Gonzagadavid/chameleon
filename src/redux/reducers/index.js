@@ -11,7 +11,7 @@ export const DEFAULT_STATE = {
   albums: [],
   album: {},
   trackList: [],
-  artistCurrent: {},
+  artistCurrent: '',
   logo: '',
   musicVideos: [],
   lyric: '',
