@@ -1,13 +1,19 @@
-import { cleanup, screen, waitFor } from '@testing-library/react';
+import {
+  cleanup, render, screen, waitFor,
+} from '@testing-library/react';
 import React from 'react';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import userEvent from '@testing-library/user-event';
 import detailKeys from '../../constants/data';
 import ArtistDetails from '../../pages/ArtistDetails';
 import { DEFAULT_STATE } from '../../redux/reducers';
 import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
 import notFound from '../../images/notFoundImage.png';
 import { METALLICA } from '../mocks/data/ARTIST_DETAILS';
+import getFavoritesArtists from '../../services/favorites/get/getFavoritesArtists';
 
 const { artists: [artist] } = METALLICA;
+
 describe('Verifica a renderização e o funcionamento do componente ArtistDetails', () => {
   afterEach(cleanup);
 
@@ -62,5 +68,20 @@ describe('Verifica a renderização e o funcionamento do componente ArtistDetail
 
     expect(image).toBeInTheDocument();
     expect(image).toHaveProperty('src', `http://localhost/${notFound}`);
+  });
+
+  it('verifica se ao clicar no icone de favoritos o artista é salvo no local storage', async () => {
+    renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: artist });
+    await waitFor(() => expect(screen.getAllByTestId('info')));
+
+    const favorite = screen.getByRole('button');
+    expect(getFavoritesArtists()).toHaveLength(0);
+    expect(favorite).toContainHTML('svg');
+
+    userEvent.click(favorite);
+    expect(getFavoritesArtists()).toHaveLength(1);
+
+    userEvent.click(favorite);
+    expect(getFavoritesArtists()).toHaveLength(0);
   });
 });
