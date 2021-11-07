@@ -16,7 +16,12 @@ const FAVORITES = {
     logo: 'https://www.theaudiodb.com/images/media/artist/logo/qrtvvt1354526582.png',
   },
   metallica: {
-    tracks: [],
+    tracks: [
+      'Master of Puppets',
+      'Enter Sandman',
+      'The Unforgiven',
+      'Nothing Else Matters',
+    ],
     albums: [
       'Ride the Lightning',
       'Metallica',
