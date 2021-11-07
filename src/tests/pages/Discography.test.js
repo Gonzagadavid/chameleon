@@ -59,4 +59,17 @@ describe('Verifica a renderização e o funcionamento do componente Discography'
       expect(getFavoriteAlbums()).toHaveLength(0);
     });
   });
+
+  it('verifica se ao clicar em um album é encaminhado para pagina de detalhes', async () => {
+    const { history } = renderWithReduxAndRouter(<Discography />, STATE);
+    await waitFor(() => expect(global.fetch).toBeCalledTimes(1));
+    await waitFor(() => expect(screen.getByText(/discography/i)));
+
+    const { strAlbum, idAlbum } = albuns[0];
+    const albumCrr = screen.getByText(strAlbum);
+
+    userEvent.click(albumCrr);
+
+    expect(history.location.pathname).toBe(`/artist-details/discography/${idAlbum}`);
+  });
 });
