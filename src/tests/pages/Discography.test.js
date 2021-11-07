@@ -72,4 +72,20 @@ describe('Verifica a renderização e o funcionamento do componente Discography'
 
     expect(history.location.pathname).toBe(`/artist-details/discography/${idAlbum}`);
   });
+
+  it('verifica se ao clicar no icone de favoritos o album é salvo no local storage', async () => {
+    renderWithReduxAndRouter(<Discography />, STATE);
+    await waitFor(() => expect(global.fetch).toBeCalledTimes(1));
+    await waitFor(() => expect(screen.getByText(/discography/i)));
+
+    const [favorite] = screen.getAllByRole('button');
+    expect(getFavoriteAlbums()).toHaveLength(0);
+    expect(favorite).toContainHTML('svg');
+
+    userEvent.click(favorite);
+    expect(getFavoriteAlbums()).toHaveLength(1);
+
+    userEvent.click(favorite);
+    expect(getFavoriteAlbums()).toHaveLength(0);
+  });
 });
