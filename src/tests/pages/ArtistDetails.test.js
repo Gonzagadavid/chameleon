@@ -1,8 +1,7 @@
 import {
-  cleanup, render, screen, waitFor,
+  cleanup, screen, waitFor,
 } from '@testing-library/react';
 import React from 'react';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import userEvent from '@testing-library/user-event';
 import detailKeys from '../../constants/data';
 import ArtistDetails from '../../pages/ArtistDetails';
