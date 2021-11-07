@@ -5,14 +5,12 @@ import { DEFAULT_STATE } from '../../redux/reducers';
 import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
 import { METALLICA } from '../mocks/data/ARTIST_DETAILS';
 import METALLICA_DISCOGRAPHY from '../mocks/data/DISCOGRAPHY';
-import METALLICA_VIDEOS from '../mocks/data/VIDEOS';
 import fetchMock from '../mocks/fetchMock';
 
 const { artists: [artist] } = METALLICA;
 const STATE = { ...DEFAULT_STATE, artistDetails: artist, artistCurrent: 'metallica' };
 const { album } = METALLICA_DISCOGRAPHY;
 const albuns = [...album].sort((a, b) => +a.intYearReleased - +b.intYearReleased);
-const { mvids } = METALLICA_VIDEOS;
 
 describe('Verifica a renderização e o funcionamento do componente Discography', () => {
   beforeEach(() => {
@@ -28,9 +26,8 @@ describe('Verifica a renderização e o funcionamento do componente Discography'
 
   it('Verifica se ao rederizar a pagina a requisições são feitas e salvas no estado da aplicação', async () => {
     const { store } = renderWithReduxAndRouter(<Discography />, STATE);
-    await waitFor(() => expect(global.fetch).toBeCalledTimes(2));
+    await waitFor(() => expect(global.fetch).toBeCalledTimes(1));
 
     expect(store.getState().albums).toEqual(albuns);
-    expect(store.getState().musicVideos).toEqual(mvids);
   });
 });

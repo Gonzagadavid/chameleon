@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import fetchDiscography from '../redux/fetchs/fetchDiscography';
 import getFavoriteAlbums from '../services/favorites/get/getFavoriteAlbums';
 import getFavoriteTracks from '../services/favorites/get/getFavoriteTracks';
-import useAlbumsAndVideos from './useAlbumsAndVideos';
+import useFetchReturnState from './useFetchReturnState';
 
 const useFavorites = () => {
   const [albumsFiltered, setAlbumsFiltered] = useState([]);
-  const [albums] = useAlbumsAndVideos();
+  const artistId = useSelector((state) => state.artistDetails.idArtist);
+  const [albums] = useFetchReturnState(fetchDiscography, artistId, 'albums');
   const favoriteAlbums = getFavoriteAlbums();
   const favoriteTracks = getFavoriteTracks();
   useEffect(() => {

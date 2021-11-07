@@ -19,6 +19,10 @@ const Empty = ({ children, condition }) => {
 export default Empty;
 
 Empty.propTypes = {
-  children: node.isRequired,
+  children: node,
   condition: bool.isRequired,
+};
+
+Empty.defaultProps = {
+  children: <div />,
 };
