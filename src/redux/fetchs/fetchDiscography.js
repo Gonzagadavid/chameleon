@@ -1,3 +1,4 @@
+import arraySortNum from '../../functions/arraySortNum';
 import fetchApi from '../../services/fetch/fetchApi';
 import { actionDiscography, actionError, actionLoading } from '../actions';
 
@@ -7,7 +8,7 @@ const fetchDiscography = (id) => async (dispatch) => {
 
   if (error) return dispatch(actionError);
 
-  const albuns = [...album].sort((a, b) => +a.intYearReleased - +b.intYearReleased);
+  const albuns = arraySortNum(album, 'intYearReleased');
   return dispatch(actionDiscography(albuns));
 };
 

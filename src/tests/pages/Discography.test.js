@@ -1,5 +1,6 @@
 import { cleanup, screen, waitFor } from '@testing-library/react';
 import React from 'react';
+import arraySortNum from '../../functions/arraySortNum';
 import Discography from '../../pages/Discography';
 import { DEFAULT_STATE } from '../../redux/reducers';
 import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
@@ -10,7 +11,7 @@ import fetchMock from '../mocks/fetchMock';
 const { artists: [artist] } = METALLICA;
 const STATE = { ...DEFAULT_STATE, artistDetails: artist, artistCurrent: 'metallica' };
 const { album } = METALLICA_DISCOGRAPHY;
-const albuns = [...album].sort((a, b) => +a.intYearReleased - +b.intYearReleased);
+const albuns = arraySortNum(album, 'intYearReleased');
 
 describe('Verifica a renderização e o funcionamento do componente Discography', () => {
   beforeEach(() => {
