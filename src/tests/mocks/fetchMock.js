@@ -1,5 +1,7 @@
+import METALLICA_ALBUM from './data/ALBUM';
 import { METALLICA, BLACK_ALIEN } from './data/ARTIST_DETAILS';
 import METALLICA_DISCOGRAPHY from './data/DISCOGRAPHY';
+import METALLICA_TRACKS from './data/TRACKS';
 import METALLICA_VIDEOS from './data/VIDEOS';
 
 const urlAtirstDetails = (artist) => `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
@@ -7,6 +9,10 @@ const urlAtirstDetails = (artist) => `https://theaudiodb.com/api/v1/json/1/searc
 const urlDiscography = (idArtist) => `https://theaudiodb.com/api/v1/json/1/album.php?i=${idArtist}`;
 
 const urlVideos = (idArtist) => `https://theaudiodb.com/api/v1/json/1/mvid.php?i=${idArtist}`;
+
+const urlAlbum = (idAlbum) => `https://theaudiodb.com/api/v1/json/1/album.php?m=${idAlbum}`;
+
+const urlTracks = (idAlbum) => `https://theaudiodb.com/api/v1/json/1/track.php?m=${idAlbum}`;
 
 const fetchMock = async (url) => {
   if (url === urlAtirstDetails('metallica')) {
@@ -25,6 +31,14 @@ const fetchMock = async (url) => {
 
   if (url === urlVideos(111279)) {
     return { ok: true, status: 200, json: async () => METALLICA_VIDEOS };
+  }
+
+  if (url === urlAlbum(2110232)) {
+    return { ok: true, status: 200, json: async () => METALLICA_ALBUM };
+  }
+
+  if (url === urlTracks(2110232)) {
+    return { ok: true, status: 200, json: async () => METALLICA_TRACKS };
   }
 
   return { ok: false, status: 404 };
