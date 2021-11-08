@@ -1,7 +1,7 @@
 import getFavorite from './getFavorite';
 
-const getFavoriteAlbums = () => {
-  const { albums } = getFavorite();
+const getFavoriteAlbums = (artist) => {
+  const { albums } = getFavorite(artist);
   return albums;
 };
 

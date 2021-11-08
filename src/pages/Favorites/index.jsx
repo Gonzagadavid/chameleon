@@ -24,9 +24,7 @@ const Favorites = () => {
           <TracksContainer trackList={favoriteTracks} />
         </div>
       </CheckComponent>
-      <CheckComponent condition={!favoriteAlbums.length && !favoriteTracks.length}>
-        <Empty />
-      </CheckComponent>
+      <Empty condition={!favoriteAlbums.length && !favoriteTracks.length} />
     </Loading>
   );
 };
