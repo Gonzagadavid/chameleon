@@ -1,15 +1,10 @@
-import {
-  cleanup, screen, waitFor, waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { cleanup, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { FAVORITE_KEY } from '../../constants/storage';
 import Favorites from '../../pages/Favorites';
 import { actionArtistCurrent } from '../../redux/actions';
 import { DEFAULT_STATE } from '../../redux/reducers';
 import storeApp from '../../redux/store';
-import getFavoriteAlbums from '../../services/favorites/get/getFavoriteAlbums';
-import getFavorites from '../../services/favorites/get/getFavorites';
-import setFavorites from '../../services/favorites/set/setFavorites';
 import getLocal from '../../services/storage/getLocal';
 import setLocal from '../../services/storage/setLocal';
 import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
