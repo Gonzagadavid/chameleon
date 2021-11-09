@@ -25,7 +25,7 @@ const AlbumDetailsContainer = () => {
       <CheckComponent condition={description}>
         <div className="description">
           <SelectLanguage setLanguage={setLanguage} objectItems={album} keyOption="strDescription" />
-          <p>{description}</p>
+          <p data-testid="description">{description}</p>
         </div>
       </CheckComponent>
     </div>
