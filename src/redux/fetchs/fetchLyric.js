@@ -1,4 +1,4 @@
-import initialUpperCase from '../../functions/initialUpperCase';
+import { cleanHeader } from '../../functions/cleanLyric';
 import fetchApiText from '../../services/fetch/fetchApiText';
 import { actionError, actionLoading, actionLyric } from '../actions';
 
@@ -8,7 +8,7 @@ const fetchLyric = (artist, title) => async (dispatch) => {
 
   if (error) return dispatch(actionError);
 
-  const lyric = lyrics.replace(`Paroles de la chanson ${initialUpperCase(title)} par ${initialUpperCase(artist)}`, '');
+  const lyric = cleanHeader(lyrics, title, artist);
 
   return dispatch(actionLyric(lyric));
 };
