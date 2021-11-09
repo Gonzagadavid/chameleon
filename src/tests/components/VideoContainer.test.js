@@ -21,4 +21,10 @@ describe('verifica a renderização e o funcionamento do componete VideoContaine
 
     expect(video).toHaveProperty('src', expectEmbedVideo);
   });
+
+  it('ao ser passado o nome de uma track sem video o mesmo retorna null', () => {
+    renderWithReduxAndRouter(<VideoContainer trackName="sem video" />, STATE);
+
+    expect(screen.queryByTestId('video-music')).toBeNull();
+  });
 });
