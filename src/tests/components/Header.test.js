@@ -19,4 +19,9 @@ describe('Verifica a renderização do componete Header', () => {
     expect(img).toBeInTheDocument();
     expect(img).toHaveProperty('src', strArtistLogo);
   });
+  it('verifica se não houver logo, renderiza o nome da banda', () => {
+    renderWithReduxAndRouter(<Header />, { ...STATE, artistDetails: { ...artist, strArtistLogo: '' } });
+
+    expect(screen.getByRole('heading', { name: strArtist }));
+  });
 });
