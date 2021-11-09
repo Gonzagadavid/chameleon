@@ -1,15 +1,14 @@
 import { cleanup, waitFor, screen } from '@testing-library/react';
 import { DEFAULT_STATE } from '../../redux/reducers';
 import renderPathWithRedux from '../helpers/renderPathWithRedux';
+import METALLICA_ALBUM from '../mocks/data/ALBUM';
 import { METALLICA } from '../mocks/data/ARTIST_DETAILS';
-import METALLICA_DISCOGRAPHY from '../mocks/data/DISCOGRAPHY';
 import METALLICA_TRACKS from '../mocks/data/TRACKS';
 import fetchMock from '../mocks/fetchMock';
 
 const { artists: [artist] } = METALLICA;
-const { album } = METALLICA_DISCOGRAPHY;
+const { album: [album] } = METALLICA_ALBUM;
 const { track } = METALLICA_TRACKS;
-const { srtAlbum } = album;
 const STATE = {
   ...DEFAULT_STATE, artistDetails: artist, artistCurrent: 'metallica', albums: album,
 };
@@ -38,7 +37,7 @@ describe('Verifica a renderização e o funcionamento do componente page AlbumDe
 
     await waitFor(() => expect(global.fetch).toBeCalledTimes(2));
 
-    expect(store.getState().albums).toEqual(album);
+    expect(store.getState().album).toEqual(album);
     expect(store.getState().trackList).toEqual(track);
   });
 });
