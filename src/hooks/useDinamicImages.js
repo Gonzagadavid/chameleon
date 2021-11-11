@@ -12,7 +12,7 @@ const useDinamicImages = (artistDetails) => {
       if (index === arrayImgs.length) { index = 0; }
       setImage(arrayImgs[index]);
       index += 1;
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);

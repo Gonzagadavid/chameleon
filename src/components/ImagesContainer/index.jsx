@@ -6,11 +6,12 @@ import './styles.css';
 
 const ImagesContainer = () => {
   const artistDetails = useSelector((state) => state.artistDetails);
+  const { strArtist } = artistDetails;
   const [image] = useDinamicImages(artistDetails);
 
   return (
     <div className="ImagesContainer">
-      <img src={image} alt="artists" />
+      <img src={image} alt={strArtist} />
     </div>
   );
 };

@@ -11,7 +11,7 @@ const AlbumCard = ({ album }) => {
     strAlbumThumb, strAlbum, intYearReleased, idAlbum,
   } = album;
   return (
-    <div className="AlbumCard">
+    <div className="AlbumCard" data-testid="album-card">
       <Favorite item={strAlbum} type={ALBUMS} />
       <Link to={`/artist-details/discography/${idAlbum}`}>
         <div className="imgAlbum">

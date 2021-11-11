@@ -2,6 +2,7 @@ import { cleanup, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import arraySortNum from '../../functions/arraySortNum';
+import filterIncludes from '../../functions/filterIncludes';
 import Discography from '../../pages/Discography';
 import { DEFAULT_STATE } from '../../redux/reducers';
 import getFavoriteAlbums from '../../services/favorites/get/getFavoriteAlbums';
@@ -13,7 +14,8 @@ import fetchMock from '../mocks/fetchMock';
 const { artists: [artist] } = METALLICA;
 const STATE = { ...DEFAULT_STATE, artistDetails: artist, artistCurrent: 'metallica' };
 const { album } = METALLICA_DISCOGRAPHY;
-const albuns = arraySortNum(album, 'intYearReleased');
+const albums = arraySortNum(album, 'intYearReleased');
+const albumsFiltered = filterIncludes(albums, 'strAlbum', 'li');
 
 describe('Verifica a renderização e o funcionamento do componente Discography', () => {
   beforeEach(() => {
@@ -31,7 +33,7 @@ describe('Verifica a renderização e o funcionamento do componente Discography'
     const { store } = renderWithReduxAndRouter(<Discography />, STATE);
     await waitFor(() => expect(global.fetch).toBeCalledTimes(1));
 
-    expect(store.getState().albums).toEqual(albuns);
+    expect(store.getState().albums).toEqual(albums);
   });
 
   it('verifica se ao clicar no icone de favorito o album é adicionado no local storage', async () => {
@@ -41,7 +43,7 @@ describe('Verifica a renderização e o funcionamento do componente Discography'
 
     const favorites = screen.getAllByRole('button');
 
-    albuns.forEach(({ strAlbum, intYearReleased }, i) => {
+    albums.forEach(({ strAlbum, intYearReleased }, i) => {
       const albumTitle = screen.getByRole('heading', { name: strAlbum });
 
       expect(albumTitle).toBeInTheDocument();
@@ -65,7 +67,7 @@ describe('Verifica a renderização e o funcionamento do componente Discography'
     await waitFor(() => expect(global.fetch).toBeCalledTimes(1));
     await waitFor(() => expect(screen.getByText(/discography/i)));
 
-    const { strAlbum, idAlbum } = albuns[0];
+    const { strAlbum, idAlbum } = albums[0];
     const albumCrr = screen.getByText(strAlbum);
 
     userEvent.click(albumCrr);
@@ -87,5 +89,22 @@ describe('Verifica a renderização e o funcionamento do componente Discography'
 
     userEvent.click(favorite);
     expect(getFavoriteAlbums()).toHaveLength(0);
+  });
+
+  it('verifica o funcionamento do filtro de pesquisa', async () => {
+    renderWithReduxAndRouter(<Discography />, STATE);
+    await waitFor(() => expect(global.fetch).toBeCalledTimes(1));
+    await waitFor(() => expect(screen.getByText(/discography/i)));
+
+    const albumCards = screen.getAllByTestId('album-card');
+    const search = screen.getByPlaceholderText('Search...');
+
+    expect(search).toBeInTheDocument();
+    expect(albumCards).toHaveLength(album.length);
+
+    userEvent.type(search, 'li');
+    const albumCardsFiltered = screen.getAllByTestId('album-card');
+
+    expect(albumCardsFiltered).toHaveLength(albumsFiltered.length);
   });
 });

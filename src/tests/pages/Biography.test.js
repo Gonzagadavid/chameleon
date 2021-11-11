@@ -10,6 +10,7 @@ import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
 import { METALLICA } from '../mocks/data/ARTIST_DETAILS';
 
 const { artists: [artist] } = METALLICA;
+
 describe('Verifica a renderização e o funcionamento com componente Biography', () => {
   afterEach(cleanup);
 

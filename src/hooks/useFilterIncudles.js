@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
+import filterIncludes from '../functions/filterIncludes';
 
 const useFilterIncludes = (arrayInit) => {
   const [array, setArray] = useState(arrayInit);
   const filter = (string, key) => {
     if (!arrayInit.length) return;
-    const filteredArray = arrayInit
-      .filter((object) => object[key].toLowerCase().includes(string.toLowerCase()));
+    const filteredArray = filterIncludes(arrayInit, key, string);
     setArray(filteredArray);
   };
 
