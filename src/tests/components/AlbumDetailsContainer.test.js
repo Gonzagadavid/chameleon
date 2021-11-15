@@ -9,6 +9,7 @@ import { DEFAULT_STATE } from '../../redux/reducers';
 import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
 import METALLICA_ALBUM from '../mocks/data/ALBUM';
 import { METALLICA } from '../mocks/data/ARTIST_DETAILS';
+import notFound from '../../images/notFoundImage.png';
 
 const { artists: [artist] } = METALLICA;
 const { album: [album] } = METALLICA_ALBUM;
@@ -26,6 +27,19 @@ describe('Verifica a renderização e o funcionamento do componente AlbumDetails
 
     expect(title).toBeInTheDocument();
     expect(img).toHaveProperty('src', strAlbumThumb);
+  });
+
+  it('Ao ser renderizado, sem album exibe a imagem notFound', () => {
+    renderWithReduxAndRouter(
+      <AlbumDetailsContainer />,
+      { ...STATE, album: { ...album, strAlbumThumb: '' } },
+    );
+
+    const title = screen.getByText(strAlbum);
+    const img = screen.getByAltText('album front');
+
+    expect(title).toBeInTheDocument();
+    expect(img).toHaveProperty('src', `http://localhost/${notFound}`);
   });
 
   it('Verifica se exibe a descrição de acordo com a linguagem selecionada', async () => {

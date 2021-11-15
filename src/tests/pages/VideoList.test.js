@@ -61,6 +61,14 @@ describe('verifica a renderização e o funcionamento do componente VideoList', 
   });
 
   it('verifica se todos as tracks com videos são renderizadas', async () => {
+    renderWithReduxAndRouter(<VideoList />, { ...STATE, artistDetails: { ...artist, idArtist: '00000' } });
+
+    await waitFor(() => expect(global.fetch).toBeCalledTimes(1));
+    await waitFor(() => expect(screen.getByText(/video music/i)).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByText(/empty/gi)).toBeInTheDocument());
+  });
+
+  it('verifica se todos as tracks com videos são renderizadas', async () => {
     renderWithReduxAndRouter(<VideoList />, STATE);
 
     await waitFor(() => expect(global.fetch).toBeCalledTimes(1));

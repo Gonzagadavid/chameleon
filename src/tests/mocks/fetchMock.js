@@ -36,6 +36,10 @@ const fetchMock = async (url) => {
     return { ok: true, status: 200, json: async () => METALLICA_VIDEOS };
   }
 
+  if (url === urlVideos('00000')) {
+    return { ok: true, status: 200, json: async () => ({ mvids: null }) };
+  }
+
   if (url === urlAlbum(2110232)) {
     return { ok: true, status: 200, json: async () => METALLICA_ALBUM };
   }
