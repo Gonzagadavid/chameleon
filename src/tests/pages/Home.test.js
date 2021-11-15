@@ -79,7 +79,7 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     expect(store.getState().artistDetails).toEqual(BLACK_ALIEN.artists[0]);
   });
 
-  it('verifica o funcionamento de busca por um artista existente ', async () => {
+  it('verifica o funcionamento de busca por um artista existente', async () => {
     const { history, store } = renderWithReduxAndRouter(<Home />);
 
     const serchBar = screen.getByPlaceholderText(/search/i);
@@ -87,6 +87,19 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
 
     userEvent.type(serchBar, 'metallica');
     userEvent.click(btn);
+    await waitFor(() => expect(global.fetch).toBeCalled());
+    await waitFor(() => expect(history.location.pathname).toBe('/artist-details'));
+    expect(store.getState().artistDetails).toEqual(METALLICA.artists[0]);
+  });
+
+  it('verifica o funcionamento de busca por um artista existente com enter', async () => {
+    const { history, store } = renderWithReduxAndRouter(<Home />);
+
+    const serchBar = screen.getByPlaceholderText(/search/i);
+    // const btn = screen.getByRole('button');
+
+    userEvent.type(serchBar, 'metallica');
+    userEvent.keyboard('[Enter]');
     await waitFor(() => expect(global.fetch).toBeCalled());
     await waitFor(() => expect(history.location.pathname).toBe('/artist-details'));
     expect(store.getState().artistDetails).toEqual(METALLICA.artists[0]);
