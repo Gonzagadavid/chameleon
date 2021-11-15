@@ -31,4 +31,12 @@ describe('Verifica a renderização e o funcionamento do componente page Track',
     await waitFor(() => expect(screen.getByText(/the unforgiven/i)).toBeInTheDocument());
     expect(store.getState().lyric).toBe(expectStateLyric);
   });
+
+  it('verifica se ao ser renderizada sem musica que não existe como parametro o erro é mostrado', async () => {
+    renderPathWithRedux('/artist-details/track/ nao existe', STATE);
+    await waitFor(() => expect(global.fetch).toBeCalledTimes(1));
+    const message = 'An error has occurred in the application, please try again later!';
+
+    await waitFor(() => expect(screen.getByText(message)).toBeInTheDocument());
+  });
 });
