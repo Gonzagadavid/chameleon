@@ -11,7 +11,7 @@ const artistTest = {
   strArtist, strArtistFanart, strArtistFanart2, strArtistFanart3,
 };
 
-describe('vewrifica o funcionamento dos custom hooks', () => {
+describe('verifica o funcionamento do custom hook useDinamicImages', () => {
   jest.setTimeout(16000);
   it('verifica a renderização da imagens', async () => {
     const { result, waitForValueToChange } = renderHook(() => useDinamicImages(artistTest));

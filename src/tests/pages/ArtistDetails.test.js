@@ -10,6 +10,9 @@ import renderWithReduxAndRouter from '../helpers/renderWithReduxAndRouter';
 import notFound from '../../images/notFoundImage.png';
 import { METALLICA } from '../mocks/data/ARTIST_DETAILS';
 import getFavoritesArtists from '../../services/favorites/get/getFavoritesArtists';
+import store from '../../redux/store';
+import { actionArtistCurrent } from '../../redux/actions';
+import setFavorites from '../../services/favorites/set/setFavorites';
 
 const { artists: [artist] } = METALLICA;
 
@@ -70,17 +73,24 @@ describe('Verifica a renderização e o funcionamento do componente ArtistDetail
   });
 
   it('verifica se ao clicar no icone de favoritos o artista é salvo no local storage', async () => {
-    renderWithReduxAndRouter(<ArtistDetails />, { ...DEFAULT_STATE, artistDetails: artist });
+    setFavorites({ 'pearl jam': { tracks: [], albums: [], logo: '' } });
+    store.dispatch(actionArtistCurrent('metallica'));
+    renderWithReduxAndRouter(<ArtistDetails />, {
+      ...DEFAULT_STATE, artistDetails: artist, artistCurrent: 'metallica',
+    });
+
     await waitFor(() => expect(screen.getAllByTestId('info')));
 
     const favorite = screen.getByRole('button');
-    expect(getFavoritesArtists()).toHaveLength(0);
+    expect(getFavoritesArtists()).toHaveLength(1);
     expect(favorite).toContainHTML('svg');
 
     userEvent.click(favorite);
-    expect(getFavoritesArtists()).toHaveLength(1);
+    expect(getFavoritesArtists()).toHaveLength(2);
+    expect(getFavoritesArtists()).toEqual(['pearl jam', 'metallica']);
 
     userEvent.click(favorite);
-    expect(getFavoritesArtists()).toHaveLength(0);
+    expect(getFavoritesArtists()).toHaveLength(1);
+    expect(getFavoritesArtists()).toEqual(['pearl jam']);
   });
 });
