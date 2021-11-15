@@ -40,4 +40,12 @@ describe('Verifica a renderização e o funcionamento do componente page AlbumDe
     expect(store.getState().album).toEqual(album);
     expect(store.getState().trackList).toEqual(track);
   });
+
+  it('verifica se ao ser renderizada com album que não existe como parametro o erro é mostrado', async () => {
+    renderPathWithRedux('/artist-details/discography/00000', STATE);
+    await waitFor(() => expect(global.fetch).toBeCalledTimes(2));
+    const message = 'An error has occurred in the application, please try again later!';
+
+    await waitFor(() => expect(screen.getByText(message)).toBeInTheDocument());
+  });
 });

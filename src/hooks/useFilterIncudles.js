@@ -4,7 +4,6 @@ import filterIncludes from '../functions/filterIncludes';
 const useFilterIncludes = (arrayInit) => {
   const [array, setArray] = useState(arrayInit);
   const filter = (string, key) => {
-    if (!arrayInit.length) return;
     const filteredArray = filterIncludes(arrayInit, key, string);
     setArray(filteredArray);
   };
