@@ -51,8 +51,8 @@ export const selectLanguages = {
     background: 'rgba(0, 0, 0, 0.6)',
   }),
 
-  singleValue: (base, state) => {
-    const opacity = state.isDisabled ? 0.5 : 1;
+  singleValue: (base) => {
+    const opacity = 1;
     const transition = 'opacity 300ms';
 
     return {
@@ -132,8 +132,8 @@ export const selectFavorites = {
     fontSize: '20px',
   }),
 
-  singleValue: (base, state) => {
-    const opacity = state.isDisabled ? 0.5 : 1;
+  singleValue: (base) => {
+    const opacity = 1;
     const transition = 'opacity 300ms';
 
     return {

@@ -13,18 +13,19 @@ const Favorites = () => {
 
   return (
     <Loading className="Favorites">
-      <h2>Favorites</h2>
-      <CheckComponent condition={favoriteAlbums.length}>
-        <h3 className="title-container">Albums</h3>
-        <AlbumsContainer albums={favoriteAlbums} />
-      </CheckComponent>
-      <CheckComponent condition={favoriteTracks.length}>
-        <div>
-          <h3 className="title-container">Tracks</h3>
-          <TracksContainer trackList={favoriteTracks} />
-        </div>
-      </CheckComponent>
-      <Empty condition={!favoriteAlbums.length && !favoriteTracks.length} />
+      <Empty condition={!!(favoriteAlbums.length || favoriteTracks.length)}>
+        <h2>Favorites</h2>
+        <CheckComponent condition={favoriteAlbums.length}>
+          <h3 className="title-container">Albums</h3>
+          <AlbumsContainer albums={favoriteAlbums} />
+        </CheckComponent>
+        <CheckComponent condition={favoriteTracks.length}>
+          <div>
+            <h3 className="title-container">Tracks</h3>
+            <TracksContainer trackList={favoriteTracks} />
+          </div>
+        </CheckComponent>
+      </Empty>
     </Loading>
   );
 };

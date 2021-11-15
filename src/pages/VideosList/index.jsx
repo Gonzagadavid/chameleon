@@ -13,7 +13,7 @@ const VideoList = () => {
   return (
     <Loading className="VideoList">
       <h2>Video Music</h2>
-      <TracksContainer trackList={musicVideos} />
+      <TracksContainer trackList={musicVideos || []} />
     </Loading>
   );
 };

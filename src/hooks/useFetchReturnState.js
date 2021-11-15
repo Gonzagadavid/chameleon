@@ -8,7 +8,7 @@ const useFetchReturnState = (fetchReq, fetchParam, storeKey) => {
   const [resp, setRep] = useState(store);
   const dispatch = useDispatch();
   const getResp = useCallback(async () => {
-    if (store.length) return;
+    if (!store || store.length) return;
     await dispatch(fetchReq(fetchParam));
   }, []);
 

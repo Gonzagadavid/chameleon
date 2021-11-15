@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import useDinamicImages from '../../hooks/useDinamicImages';
+import CheckComponent from '../CheckComponent';
 
 import './styles.css';
 
@@ -10,9 +11,11 @@ const ImagesContainer = () => {
   const [image] = useDinamicImages(artistDetails);
 
   return (
-    <div className="ImagesContainer">
-      <img src={image} alt={strArtist} />
-    </div>
+    <CheckComponent condition={image}>
+      <div className="ImagesContainer">
+        <img src={image} alt={strArtist} />
+      </div>
+    </CheckComponent>
   );
 };
 

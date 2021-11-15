@@ -7,7 +7,7 @@ const fetchVideos = (id) => async (dispatch) => {
 
   if (error) return dispatch(actionError);
 
-  return dispatch(actionMusicVideos(mvids || []));
+  return dispatch(actionMusicVideos(mvids));
 };
 
 export default fetchVideos;

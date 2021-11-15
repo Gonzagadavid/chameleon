@@ -14,15 +14,15 @@ const TracksContainer = ({ trackList }) => {
   const idArtist = useSelector((state) => state.artistDetails.idArtist);
   const [filteredTracks, setFilteredTracks] = useFilterIncludes(trackList);
   const [musicVideos] = useFetchReturnState(fetchVideos, idArtist, 'musicVideos');
-  const videosTrack = musicVideos.map(({ strTrack }) => strTrack);
+  const videosTrack = musicVideos && musicVideos.map(({ strTrack }) => strTrack);
 
   return (
     <div className="TracksContainer">
       <SearchBar setFiltered={setFilteredTracks} objectKey="strTrack" />
-      <Empty condition={!!filteredTracks.length}>
+      <Empty condition={filteredTracks && !!filteredTracks.length}>
         <div className="trackList">
           {filteredTracks.map(({ strTrack }) => (
-            <TrackCard key={uuidv4()} trackName={strTrack} videosTrack={videosTrack} />
+            <TrackCard key={uuidv4()} trackName={strTrack} videosTrack={videosTrack || []} />
           ))}
         </div>
       </Empty>

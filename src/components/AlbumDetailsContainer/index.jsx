@@ -4,6 +4,7 @@ import { ALBUMS } from '../../constants/types';
 import CheckComponent from '../CheckComponent';
 import Favorite from '../Favorite';
 import SelectLanguage from '../SelectLanguage';
+import notFound from '../../images/notFoundImage.png';
 import './style.css';
 
 const AlbumDetailsContainer = () => {
@@ -21,7 +22,7 @@ const AlbumDetailsContainer = () => {
         { strAlbum }
         <span>{`(${intYearReleased})`}</span>
       </h3>
-      <img src={strAlbumThumb} alt="album front" className="album-image" />
+      <img src={strAlbumThumb || notFound} alt="album front" className="album-image" />
       <CheckComponent condition={description}>
         <div className="description">
           <SelectLanguage setLanguage={setLanguage} objectItems={album} keyOption="strDescription" />
