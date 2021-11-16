@@ -76,3 +76,43 @@
   justify-content: center;
   margin: 0;
 }
+
+@media(max-width: 700px) {
+  .Home {
+    font-size: 30px;
+  }
+
+  .Home h1 {
+    font-size: 150px;
+  }
+
+  .Home .gif {
+    width: 80px;
+    right: -35px;
+    top: 30px
+  }
+
+  .Home input {
+    width: 300px;
+  }
+}
+
+@media(max-width: 470px) {
+  .Home {
+    font-size: 25px;
+  }
+
+  .Home h1 {
+    font-size: 100px;
+  }
+
+  .Home .gif {
+    width: 70px;
+    right: -35px;
+    top: 15px
+  }
+
+  .Home input {
+    width: 150px;
+  }
+}
