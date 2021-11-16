@@ -1,9 +1,11 @@
 import {
+  act,
   cleanup, fireEvent, screen, waitFor,
 } from '@testing-library/react';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import selectEvent from 'react-select-event';
+import matchMediaPolyfill from 'mq-polyfill';
 import { ARTIST_STATE, FAVORITE_KEY } from '../../constants/storage';
 import Home from '../../pages/Home';
 import getLocal from '../../services/storage/getLocal';
@@ -15,7 +17,10 @@ import FAVORITE from '../mocks/data/FAVORITES';
 import fetchMock from '../mocks/fetchMock';
 import { BLACK_ALIEN, METALLICA } from '../mocks/data/ARTIST_DETAILS';
 import App from '../../App';
+import resizeTo from '../mocks/risizeTo';
 
+matchMediaPolyfill(window);
+window.resizeTo = resizeTo;
 describe('verifica a renderização o funcionamento do compoennte Home', () => {
   beforeEach(() => {
     global.fetch = jest.fn(fetchMock);
@@ -79,6 +84,17 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     expect(store.getState().artistDetails).toEqual(BLACK_ALIEN.artists[0]);
   });
 
+  it('verifica se o seletor favoritos é renderizado em tela menor', async () => {
+    setLocal(FAVORITE_KEY, FAVORITE);
+    expect(getLocal(FAVORITE_KEY)).toEqual(FAVORITE);
+
+    renderWithReduxAndRouter(<Home />);
+
+    act(() => window.resizeTo(360, 500));
+
+    expect(screen.getByText(/favorites/i)).toBeInTheDocument();
+  });
+
   it('verifica o funcionamento de busca por um artista existente', async () => {
     const { history, store } = renderWithReduxAndRouter(<Home />);
 
@@ -96,7 +112,6 @@ describe('verifica a renderização o funcionamento do compoennte Home', () => {
     const { history, store } = renderWithReduxAndRouter(<Home />);
 
     const serchBar = screen.getByPlaceholderText(/search/i);
-    // const btn = screen.getByRole('button');
 
     userEvent.type(serchBar, 'metallica');
     userEvent.keyboard('[Enter]');
