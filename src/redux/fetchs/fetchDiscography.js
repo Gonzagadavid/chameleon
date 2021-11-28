@@ -4,7 +4,7 @@ import { actionDiscography, actionError, actionLoading } from '../actions';
 
 const fetchDiscography = (id) => async (dispatch) => {
   dispatch(actionLoading);
-  const { album, error } = await fetchApi(`https://theaudiodb.com/api/v1/json/1/album.php?i=${id}`);
+  const { album, error } = await fetchApi(`https://theaudiodb.com/api/v1/json/2/album.php?i=${id}`);
 
   if (error) return dispatch(actionError);
 
