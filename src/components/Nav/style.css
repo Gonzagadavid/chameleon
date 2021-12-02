@@ -1,4 +1,5 @@
 .Nav {
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,6 +12,8 @@
   top: 0px;
   height: 100%;
   width: 23vw;
+  transition-property: transform;
+  transition-duration: 1s;
 }
 
 .Nav nav {
@@ -46,4 +49,34 @@
   transition-property: color;
   transition-property: background-color;
   transition-duration: 0.2s;
+}
+
+.Nav button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  right: -35px;
+  top: 25%;
+  border-radius: 0 50% 50% 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  box-shadow: 3px 0px 6px white;
+  font-size: 30px;
+}
+
+@media(max-width: 900px) {
+  .Nav{
+    transform: translateX(-100%);
+  }
+  
+  .Nav-visible {
+    transform: translateX(0%);
+  }
+  
 }

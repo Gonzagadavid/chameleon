@@ -16,3 +16,9 @@
   width: 100%;
   height: 100%;
 }
+
+@media(max-width: 900px) {
+  .Content {
+    margin-left: 0;
+  }
+}
