@@ -5,3 +5,10 @@
 .InfoImage img{
   width: 100%;
 }
+
+@media(max-width: 700px) {
+  .InfoImage {
+    width: 100%;
+  }
+  
+}
