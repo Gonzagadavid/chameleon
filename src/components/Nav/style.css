@@ -57,14 +57,14 @@
   align-items: center;
   justify-content: center;
   z-index: 3;
-  right: -35px;
+  right: -40px;
   top: 25%;
   border-radius: 0 50% 50% 0;
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
   border: none;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   padding: 5px;
   box-shadow: 3px 0px 6px white;
   font-size: 30px;
@@ -73,10 +73,31 @@
 @media(max-width: 900px) {
   .Nav{
     transform: translateX(-100%);
+    width: 35vw;
+    
   }
   
   .Nav-visible {
     transform: translateX(0%);
   }
+
+     
+  .Nav li a {
+    font-size: 1.7rem;
+  }
   
+}
+
+@media(max-width: 600px) {
+  .Nav{
+    width: 50vw;
+  }
+
+}
+
+@media(max-width: 450px) {
+  .Nav{
+    width: 60vw;
+  }
+
 }
