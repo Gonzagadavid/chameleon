@@ -15,3 +15,26 @@
   padding: 0 20px;
   vertical-align: center;
 }
+
+@media(max-width: 700px) {
+  .Track {
+    width: 80%;
+  margin: 20px 20px 20px 50px;
+  padding: 10px;
+
+  }
+
+  .Track h2 {
+    font-size: 35px;
+  }
+}
+
+
+@media(max-width: 700px) {
+  .Track {
+    width: 80%;
+  margin: 20px 20px 20px 30px;
+  padding: 10px;
+
+  }
+}

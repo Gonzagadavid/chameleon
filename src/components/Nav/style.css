@@ -44,7 +44,7 @@
   padding: 15px 30px 15px 30px;
   margin-bottom: 10px;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 500;
   transition-property: color;
   transition-property: background-color;
@@ -83,7 +83,7 @@
 
      
   .Nav li a {
-    font-size: 1.7rem;
+    /* font-size: 1.7rem; */
   }
   
 }
