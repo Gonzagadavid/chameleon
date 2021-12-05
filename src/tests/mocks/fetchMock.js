@@ -5,15 +5,15 @@ import METALLICA_LYRIC from './data/LYRIC';
 import METALLICA_TRACKS from './data/TRACKS';
 import METALLICA_VIDEOS from './data/VIDEOS';
 
-const urlAtirstDetails = (artist) => `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
+const urlAtirstDetails = (artist) => `https://theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
 
-const urlDiscography = (idArtist) => `https://theaudiodb.com/api/v1/json/1/album.php?i=${idArtist}`;
+const urlDiscography = (idArtist) => `https://theaudiodb.com/api/v1/json/2/album.php?i=${idArtist}`;
 
-const urlVideos = (idArtist) => `https://theaudiodb.com/api/v1/json/1/mvid.php?i=${idArtist}`;
+const urlVideos = (idArtist) => `https://theaudiodb.com/api/v1/json/2/mvid.php?i=${idArtist}`;
 
-const urlAlbum = (idAlbum) => `https://theaudiodb.com/api/v1/json/1/album.php?m=${idAlbum}`;
+const urlAlbum = (idAlbum) => `https://theaudiodb.com/api/v1/json/2/album.php?m=${idAlbum}`;
 
-const urlTracks = (idAlbum) => `https://theaudiodb.com/api/v1/json/1/track.php?m=${idAlbum}`;
+const urlTracks = (idAlbum) => `https://theaudiodb.com/api/v1/json/2/track.php?m=${idAlbum}`;
 
 const urlLyric = (artist, trackName) => `https://api.lyrics.ovh/v1/${artist}/${trackName}`;
 
