@@ -80,24 +80,20 @@
   .Nav-visible {
     transform: translateX(0%);
   }
-
-     
+   
   .Nav li a {
     /* font-size: 1.7rem; */
   }
-  
 }
 
 @media(max-width: 600px) {
   .Nav{
     width: 50vw;
   }
-
 }
 
 @media(max-width: 450px) {
   .Nav{
     width: 60vw;
   }
-
 }

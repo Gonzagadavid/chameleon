@@ -13,14 +13,10 @@ const Nav = () => {
   const [hidden, setHidden] = useState(false);
   const [width] = useWindowDimensions();
 
-  const handleClick = () => {
-    setHidden(!hidden);
-  };
-
   return (
-    <div className={`Nav ${hidden && 'Nav-visible'}`}>
+    <div className={`Nav ${hidden ? 'Nav-visible' : ''}`}>
       <CheckComponent condition={width < 900}>
-        <button type="button" onClick={handleClick}>
+        <button type="button" onClick={() => setHidden(!hidden)}>
           <CheckComponent condition={hidden}>
             <IoIosArrowBack />
           </CheckComponent>
