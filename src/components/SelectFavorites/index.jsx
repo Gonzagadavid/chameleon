@@ -27,7 +27,7 @@ const SelectFavorites = ({ setFavorite }) => {
           <div>
             {
              e.code
-               ? <img src={e.code} alt="flag" width="200px" />
+               ? <img src={e.code} alt="flag" width="100%" />
                : <span style={{ marginRight: 10 }}>{e.label}</span>
           }
           </div>

@@ -70,7 +70,7 @@ export const selectLanguages = {
 export const selectFavorites = {
   menu: (base) => ({
     ...base,
-    width: '300px',
+    width: '100%',
     color: 'white',
     background: 'rgba(0, 0, 0, 0.6)',
     padding: 20,

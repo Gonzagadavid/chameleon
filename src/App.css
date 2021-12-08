@@ -20,6 +20,10 @@ h2 {
   font-size: 50px;
 }
 
+button:active{
+  background-color: transparent;
+}
+
 @font-face {
   font-family: kabut;
   src: url('./fonts/kabut_hitam/Kabut\ Hitam.ttf');
