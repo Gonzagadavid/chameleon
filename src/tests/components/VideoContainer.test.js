@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import VideoContainer from '../../components/VIdeoContainer';
 import embedVideo from '../../functions/embedVideo';
@@ -26,5 +27,28 @@ describe('verifica a renderização e o funcionamento do componete VideoContaine
     renderWithReduxAndRouter(<VideoContainer trackName="sem video" />, STATE);
 
     expect(screen.queryByTestId('video-music')).toBeNull();
+  });
+
+  it('verifica o funcionamento dos botões do video', async () => {
+    renderWithReduxAndRouter(<VideoContainer trackName={strTrack} />, STATE);
+
+    const closeVideo = screen.getByTestId('close-video');
+    const videoContainer = screen.getByTestId('video-container');
+    const stikyVideo = screen.getByTestId('sticky-video');
+
+    expect(closeVideo).toBeInTheDocument();
+    expect(stikyVideo).toBeInTheDocument();
+    expect(videoContainer).toBeInTheDocument();
+
+    expect(videoContainer.className).toBe('Video sticky');
+
+    userEvent.click(stikyVideo);
+    expect(videoContainer.className).toBe('Video ');
+
+    userEvent.click(stikyVideo);
+    expect(videoContainer.className).toBe('Video sticky');
+
+    userEvent.click(closeVideo);
+    expect(videoContainer).not.toBeInTheDocument();
   });
 });
