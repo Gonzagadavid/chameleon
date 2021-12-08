@@ -5,3 +5,7 @@
 .Empty h3 {
   font-size: 40px;
 }
+
+.Empty img {
+  width: 90%;
+}
