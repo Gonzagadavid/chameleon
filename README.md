@@ -33,7 +33,7 @@ A página inicial possui uma barra de busca, onde a pessoa usuária insere o nom
 
 <img src="./assets/initial-page.gif" alt="initial page">  <img src="./assets/initial-page-mobile.gif" alt="initial page mobile" width="168px">
 
-Caso a pessoa usuária digite o nome da banda incorretamente ou o nome de uma banda que não está no banco de dados uma mensgem será renderizada na tela.
+Caso a pessoa usuária digite o nome da banda incorretamente ou o nome de uma banda que não está no banco de dados uma mensagem será renderizada na tela.
 
 <img src="./assets/message-initial.gif" alt="initial page">  <img src="./assets/message-initial-mobile.gif" alt="initial page mobile" width="168px">
 
@@ -60,7 +60,7 @@ Essa página exibe a biografia da banda ou artista, podendo estar disponível em
 ## Discography 
 ### Discografia da banda ou artista
 
-Exibe os albuns da banda ou artista ordenado pelo ano de lançamento, podendo ser filtrados pelo titulo, ao clicar em um dos albuns, a pessoa usuária será redirecionada para a página de detalhes desse album.
+Exibe os álbuns da banda ou artista ordenado pelo ano de lançamento, podendo ser filtrados pelo titulo, ao clicar em um dos álbuns, a pessoa usuária será redirecionada para a página de detalhes desse album.
 
 <img src="./assets/discography.gif" alt="initial page">  <img src="./assets/discography-mobile.gif" alt="initial page mobile" width="168px">
 
@@ -81,13 +81,13 @@ Ao clicar em um track a pessoa usuária é redirecionada para uma página com a 
 
 ## Videos Music  
 
-Exibe uma lista de todas as tracks que possuem videos, podendo ser filtradas, ao clicar em uma track, a pessoa usuária será direcionada para a página Track
+Exibe uma lista de todas as tracks que possuem vídeos, podendo ser filtradas, ao clicar em uma track, a pessoa usuária será direcionada para a página Track
 
 <img src="./assets/video-music.gif" alt="initial page">  <img src="./assets/video-music-mobile.gif" alt="initial page mobile" width="168px">
 
 ## Favorites
 
-Exibe as tracks e albuns salvos em favoritos, sendo que ao ser clicado é redirecionado para a página album details ou a página track, podendo também ser filtrado a partir de seus titulos.
+Exibe as tracks e álbuns salvos em favoritos, sendo que ao ser clicado é redirecionado para a página album details ou a página track, podendo também ser filtrado a partir de seus títulos.
 
 <img src="./assets/favorites.gif" alt="initial page">  <img src="./assets/favorites-mobile.gif" alt="initial page mobile" width="168px">
 
