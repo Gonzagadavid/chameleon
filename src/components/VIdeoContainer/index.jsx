@@ -17,7 +17,7 @@ const VideoContainer = ({ trackName }) => {
   return (
     <CheckComponent condition={music && visible}>
       <div className={`Video ${sticky ? 'sticky' : ''}`} data-testid="video-container">
-        <iframe className="Video" src={embedVideo} title={`video of music ${trackName}`} data-testid="video-music" />
+        <iframe className="Video" src={`${embedVideo}?modestbranding=1&control=1`} title={`video of music ${trackName}`} data-testid="video-music" />
         <div className="btns">
           <button type="button" onClick={() => setVisible(false)} data-testid="close-video">
             <AiOutlineClose />

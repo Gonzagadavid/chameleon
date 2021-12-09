@@ -25,16 +25,22 @@
   color: white;
   border: none;
   font-size: 25px;
+  cursor: pointer;
 }
 
 @media(max-width: 760px) {
   .Video {
-    height: 80%; 
+    height: 100%; 
+    width: 100%;
   }
 
+  .Video iframe {
+    width: 100%;
+    height: 300px;
+  }
 
-.Video .btns button {
-  font-size: 20px;
-  margin-left: 15px;
-}
+  .Video .btns button {
+    font-size: 20px;
+    margin-left: 15px;
+  }
 }

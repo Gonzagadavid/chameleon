@@ -29,3 +29,32 @@
   border-radius: 5px;
   width: 100px;
 }
+
+@media(max-width: 800px) {
+  .MessageContainer {
+    left: 10%;
+    
+  }
+}
+
+@media(max-width: 650px) {
+  .MessageContainer {
+    left: 20%;
+    width: 300px;
+    font-size: 25px;
+  }
+}
+
+@media(max-width: 520px) {
+  .MessageContainer {
+    left: 15%;
+  }
+}
+
+@media(max-width: 520px) {
+  .MessageContainer {
+    left: 12%;
+    width: 200px;
+    font-size: 20px;
+  }
+}
