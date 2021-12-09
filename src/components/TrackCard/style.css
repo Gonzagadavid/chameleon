@@ -51,7 +51,7 @@
 @media(max-width: 420px) {
   .TrackCard {
     flex-direction: column;
-    height: 125px;
+    height: 200px;
   }
 
   .icon span {

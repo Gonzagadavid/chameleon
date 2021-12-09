@@ -125,8 +125,20 @@ Exibe as tracks e álbuns salvos em favoritos, sendo que ao ser clicado é redir
 
 # Testes
 
-Usando o biblioteca testing library, foi desenvolvido 100% de cobertura de testes unitarios para a aplicação.
+Usando o biblioteca testing library, foi desenvolvido 100% de cobertura de testes unitários para a aplicação.
 Para rodar os testes localmente basta usar o comando `npm test` e `npm run coverage` para a verificação da cobertura;
 
 <img  src="./assets/images/coverage-terminal.png" />
 <img  src="./assets/images/coverage-browser.png" />
+
+---
+
+# APIs 
+
+Para o desenvolvimento desse aplicativo foi utilizado a combinação de duas excelentes APIs: [The Audio DB](#https://www.theaudiodb.com/) e [Lyrics OVH](#https://lyricsovh.docs.apiary.io/)
+
+---
+
+# Deploy
+
+Para o deploy da aplicação foi escolhido a [Vercel](#https://vercel.com/), pois além de permitir o deploy gratuito de projetos pessoais, preserva o comportamento original da rotas dos projetos React usando React Router Dom.
