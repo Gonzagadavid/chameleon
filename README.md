@@ -64,7 +64,7 @@ Exibe os albuns da banda ou artista ordenado pelo ano de lançamento, podendo se
 
 <img src="./assets/discography.gif" alt="initial page">  <img src="./assets/discography-mobile.gif" alt="initial page mobile" width="168px">
 
-## Albums Details 
+## Album Details 
 ### Destalhes do album selecionado
 
 Após a pessoa usuária escolher um album, será redirecionada para a página com detalhes desse album, contendo a historia do album, podendo estar disponível em vários idiomas, contendo um seletor para a escolha. Também é exibido as tracks desse album, podendo ser filtradas pelo nome, ao clicar em uma track, a pessoa usuária será redirecionada para a página dessa track.
