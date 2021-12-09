@@ -20,7 +20,7 @@ describe('verifica a renderização e o funcionamento do componete VideoContaine
     const video = screen.getByTestId('video-music');
     expect(video).toBeInTheDocument();
 
-    expect(video).toHaveProperty('src', expectEmbedVideo);
+    expect(video).toHaveProperty('src', `${expectEmbedVideo}?modestbranding=1&control=1`);
   });
 
   it('ao ser passado o nome de uma track sem video o mesmo retorna null', () => {
