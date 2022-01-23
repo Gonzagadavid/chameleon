@@ -13,6 +13,7 @@ const VideoContainer = ({ trackName }) => {
   const musicVideos = useSelector((state) => state.musicVideos);
   const [music] = musicVideos.filter(({ strTrack }) => trackName === strTrack);
   const embedVideo = toEmbed(music);
+  console.log(embedVideo);
 
   return (
     <CheckComponent condition={music && visible}>
