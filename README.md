@@ -3,7 +3,7 @@
   <img src="./assets/images/logo-white.gif" alt="chameleon log" width="500px" />
 </div>
 
-<h1><a href="https://chameleon-fp3lhcex0-gonzagadavid.vercel.app/" >Visit Chameleon</a></h1>
+<h1><a href="https://chameleonmusic.vercel.app/" >Visit Chameleon</a></h1>
 
 # Sumário
 
@@ -144,4 +144,4 @@ Para o desenvolvimento desse aplicativo foi utilizado a combinação de duas exc
 
 Para o deploy da aplicação foi escolhido a [Vercel](#https://vercel.com/), pois além de permitir o deploy gratuito de projetos pessoais, preserva o comportamento original da rotas dos projetos React usando React Router Dom.
 
-<h1><a href="https://chameleon-fp3lhcex0-gonzagadavid.vercel.app/" >Visit Chameleon</a></h1>
+<h1><a href="https://chameleonmusic.vercel.app/" >Visit Chameleon</a></h1>
