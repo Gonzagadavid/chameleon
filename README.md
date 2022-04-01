@@ -8,7 +8,7 @@
 # Sumário
 
 - [Introdução](#introdução)
-- [Instruções para rodar localmente](#instruções-para-rodar-localmente)
+- [Instruções para rodar localmente](#Instruções-para-rodar-localmente)
 - [Detalhes da aplicação](#Detalhes-da-aplicação)
   - [Página Inicial](#página-inicial)
   - [Details](#details)
