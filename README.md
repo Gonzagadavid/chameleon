@@ -20,6 +20,7 @@
   - [Favorites](#favorites)
 - [Tecnologias](#tecnologias)
 - [Testes](#testes)
+- [Instruções para rodar os testes localmente](#Instruções-para-rodar-testes-localmente)
 - [APIs](#apis)
 - [Deploy](#deploy)
 
@@ -142,6 +143,12 @@ Para rodar os testes localmente basta usar o comando `npm test` e `npm run cover
 
 <img  src="./assets/images/coverage-terminal.png" />
 <img  src="./assets/images/coverage-browser.png" />
+
+---
+
+# Instruções para rodar os testes localmente
+
+Depois de clonar o [repositório e instalar as dependencias](#instruções-para-rodar-localmente), basta rodar o comando `npm test` 
 
 ---
 
