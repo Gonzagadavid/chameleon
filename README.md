@@ -8,6 +8,7 @@
 # Sumário
 
 - [Introdução](#introdução)
+- [Instruções para rodar localmente](#instruções-para-rodar-localmente)
 - [Detalhes da aplicação](#Detalhes-da-aplicação)
   - [Página Inicial](#página-inicial)
   - [Details](#details)
@@ -27,6 +28,16 @@
 # Introdução
 
 Chameleon é uma aplicação que onde permite que a pessoa usuária obtenha informações sobre suas bandas favoritas, procurando promover a experiência de estar em um ambiente feito especialmente para a banda pesquisada. Também possui a funcionalidade de salvar bandas, tracks e albums em favoritos, sendo armazenados no local storage, tornando o acesso prático sem a necessidade de cadastro e login.
+
+---
+
+# Instruções para rodar localmente
+
+- clone o repositorio localmente `git clone git@github.com:Gonzagadavid/chameleon.git`
+- entre na pasta clonada `cd chameleon`
+- instale as dependencias `npm install`
+- rode aplicação com o comando `npm start`
+- aplicação será aberta em http://localhost:3000
 
 ---
 
