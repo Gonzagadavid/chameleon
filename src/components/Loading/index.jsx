@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import vinil from '../../images/vinil.gif';
 import Delayed from '../Delayed';
-import './style.css';
 
 const Loading = ({ children, className }) => {
   const loading = useSelector((state) => state.loading);
