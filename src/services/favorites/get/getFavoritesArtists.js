@@ -2,8 +2,7 @@ import getFavorites from './getFavorites';
 
 const getFavoritesArtists = () => {
   const favorites = getFavorites();
-  const favoriteList = Object.keys(favorites);
-  return favoriteList;
+  return Object.keys(favorites);
 };
 
 export default getFavoritesArtists;
