@@ -5,11 +5,12 @@ import React from 'react';
 import Select from 'react-select';
 import { selectLanguages } from '../../constants/selectStyles';
 import arrayKeys from '../../functions/arrayKeys';
+import getCode from '../../functions/getCode';
 import './style.css';
 
 const SelectLanguage = ({ setLanguage, objectItems, keyOption }) => {
   const options = arrayKeys(objectItems, keyOption)
-    .map((tag) => ({ value: tag, label: tag, code: tag === 'PT' ? 'BR' : tag === 'EN' ? 'US' : tag }));
+    .map((tag) => ({ value: tag, label: tag, code: getCode(tag) }));
   return (
     <div className="SelectLanguage">
       <Select
