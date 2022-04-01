@@ -4,7 +4,6 @@ import getFavorites from './getFavorites';
 const getFavorite = () => {
   const { artistCurrent } = store.getState();
   const favorites = getFavorites();
-  const favorite = favorites[artistCurrent] || { albums: [], tracks: [] };
-  return favorite;
+  return favorites[artistCurrent] || { albums: [], tracks: [] };
 };
 export default getFavorite;
