@@ -9,7 +9,7 @@ const LogoArtist = () => {
     <div className="LogoArtist">
       {
         strArtistLogo
-          ? <img src={strArtistLogo} alt={`logo of ${`${strArtist}`}`} />
+          ? <img src={strArtistLogo} alt={`logo of ${strArtist}`} />
           : <h2>{strArtist}</h2>
       }
     </div>
