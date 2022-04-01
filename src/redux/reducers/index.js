@@ -23,7 +23,7 @@ const LOCAL_STORE_STATE = getSession(ARTIST_STATE) || false;
 
 const INITIAL_STATE = LOCAL_STORE_STATE || DEFAULT_STATE;
 
-const reducer = (state = INITIAL_STATE, action) => {
+const reducer = (state = INITIAL_STATE, action = { type: null }) => {
   switch (action.type) {
     case ERROR:
       return {
