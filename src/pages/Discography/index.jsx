@@ -4,7 +4,6 @@ import AlbumsContainer from '../../components/AlbumsContainer';
 import Loading from '../../components/Loading';
 import useFetchReturnState from '../../hooks/useFetchReturnState';
 import fetchDiscography from '../../redux/fetchs/fetchDiscography';
-import './style.css';
 
 const Discography = () => {
   const artistId = useSelector((state) => state.artistDetails.idArtist);
