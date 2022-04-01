@@ -20,7 +20,7 @@
   - [Favorites](#favorites)
 - [Tecnologias](#tecnologias)
 - [Testes](#testes)
-- [Instruções para rodar os testes localmente](#Instruções-para-rodar-testes-localmente)
+- [Instruções para rodar os testes localmente](#Instruções-para-rodar-os-testes-localmente)
 - [APIs](#apis)
 - [Deploy](#deploy)
 
