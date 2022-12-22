@@ -1,3 +1,5 @@
+## **Infelizmente a [api](https://theaudiodb.com/api_guide.php) limitou a versão de testes, apenas para a banda coldplay, e passou a cobrar pelos outros serviços. Por esse motivo a busca será feita somente para essa banda**
+
 # Projeto Pessoal
 <div align="center">
   <img src="./assets/images/logo-white.gif" alt="chameleon log" width="500px" />

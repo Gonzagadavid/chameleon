@@ -4,11 +4,11 @@ import { actionError, actionLoading, actionLyric } from '../actions';
 
 const fetchLyric = (artist, title) => async (dispatch) => {
   dispatch(actionLoading);
-  const { lyrics, error } = await fetchApiText(`https://api.lyrics.ovh/v1/${artist}/${title}`);
+  const { lyrics, error } = await fetchApiText(`https://api.lyrics.ovh/v1/coldplay/${title}`);
 
   if (error) return dispatch(actionError);
 
-  const lyric = cleanHeader(lyrics, title, artist);
+  const lyric = cleanHeader(lyrics, title, 'coldplay');
 
   return dispatch(actionLyric(lyric));
 };

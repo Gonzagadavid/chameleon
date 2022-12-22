@@ -74,6 +74,7 @@ const Home = () => {
           <SelectFavorites setFavorite={setFavorite} />
         </CheckComponent>
         <p>Learn more about your favorite singer or band!</p>
+        <p>Limited to Coldplay =( (because of the API)</p>
       </div>
     </div>
   );
