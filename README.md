@@ -1,4 +1,4 @@
-## **Infelizmente a [api](https://theaudiodb.com/api_guide.php) não disponibiliza nenhum dado para projetos pessoais, pretendo construir uma api para atender esse projeto**
+## **Infelizmente a [api](https://theaudiodb.com/api_guide.php) no momento, não está mais disponibilizando nenhum dado para projetos pessoais, pretendo construir uma api para atender esse projeto**
 
 # Projeto Pessoal
 <div align="center">
