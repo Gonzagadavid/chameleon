@@ -1,4 +1,4 @@
-## **Infelizmente a [api](https://theaudiodb.com/api_guide.php) limitou a versão de testes para apenas a banda coldplay, e passou a cobrar pelos outros serviços. Por esse motivo a busca será feita somente para essa banda**
+## **Infelizmente a [api](https://theaudiodb.com/api_guide.php) não disponibiliza nenhum dado para projetos pessoais, pretendo construir uma api para atender esse projeto**
 
 # Projeto Pessoal
 <div align="center">
